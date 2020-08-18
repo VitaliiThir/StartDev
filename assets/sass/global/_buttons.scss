@@ -1,0 +1,72 @@
+.dev-btn {
+  display: inline-flex;
+  color: initial;
+  font-size: $font-size-base;
+  text-align: center;
+  line-height: 1;
+  text-decoration: none;
+  padding: 1rem 2.06rem;
+  cursor: pointer;
+  border-radius: $border-radius-btn;
+  transition: all $trs;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.dev-btn-transparent {
+  color: $white;
+  border: 1px solid rgba($white, .3);
+}
+
+.dev-btn-secondary {
+  background-color: $secondary;
+  color: $white;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: darken($secondary, 10%);
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+}
+
+.dev-btn-white {
+  border: 1px solid $gray;
+  background-color: $white;
+  &:hover {
+    background-color: $gray;
+  }
+}
+
+.dev-btn-primary {
+  color: $white;
+  background-color: $primary;
+  border: none;
+  &:hover {
+    color: $white;
+    background-color: $primary;
+  }
+}
+
+.dev-btn-success {
+  color: $white;
+  background-color: $success;
+  &:hover {
+    color: $white;
+    background-color: $success;
+  }
+}
+
+.dev-btn-gray {
+  font-weight: $font-weight-medium;
+  border: 1px solid $gray;
+  &:hover {
+    background-color: $gray;
+  }
+}

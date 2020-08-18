@@ -1,0 +1,80 @@
+.sh-element {
+  position: relative;
+  overflow: hidden;
+  transition: height .2s;
+}
+
+.sh-btns {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1.5rem 0;
+  background-color: $white;
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3.5rem;
+    bottom: 100%;
+    background-image: linear-gradient(to top, $white, rgba($white, 0));
+    transition: opacity .2s;
+  }
+  &.sh-btns-hidden {
+    .sh-btn-show {
+      opacity: 1;
+    }
+    .sh-btn-hidden {
+      opacity: 0;
+    }
+  }
+  &.sh-btns-show {
+    .sh-btn-show {
+      opacity: 0;
+    }
+    .sh-btn-hidden {
+      opacity: 1;
+    }
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+.sh-btn-show, .sh-btn-hidden {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  bottom: 0;
+  color: $primary;
+  font-size: $fz-14;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: opacity .2s;
+  span {
+    line-height: 1.4;
+    border-bottom: 1px dashed $primary;
+    &::after {
+      display: inline-flex;
+      content: '';
+      width: 1em;
+      height: 1em;
+      transform: translateY(25%);
+      @include background('../img/svg/down-arrow-primary.svg', $size: 70%);
+      margin-left: .25em;
+    }
+  }
+}
+
+.sh-btn-hidden {
+  span {
+    &::after {
+      transform: rotateX(-180deg) translateY(-25%);
+    }
+  }
+}

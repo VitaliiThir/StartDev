@@ -1,0 +1,33 @@
+.title {
+  color: $font-color-base;
+  font-weight: $font-weight-light;
+  letter-spacing: .025em;
+  h1, h2, h3, h4, h5, h6, span {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+  &.title-uppercase {
+    text-transform: uppercase;
+  }
+  &.title-first {
+    @include rfs($h1-font-size);
+  }
+  &.title-second {
+    @include rfs($h2-font-size);
+  }
+  &.title-third {
+    @include rfs($h3-font-size);
+  }
+  &.title-fourth {
+    @include rfs($h4-font-size);
+  }
+  &.title-fifth {
+    @include rfs($h5-font-size);
+  }
+  &.title-sixth {
+    @include rfs($h6-font-size);
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "modules": "./node_modules"
+      }
+    }],
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "corejs": "3",
+        "useBuiltIns": "entry",
+        "modules" : "commonjs",
+        "debug": false,
+        "ignoreBrowserslistConfig": true,
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 8"]
+        }
+      }
+    ]
+  ]
+}

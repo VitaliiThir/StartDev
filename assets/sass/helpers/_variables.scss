@@ -1,0 +1,126 @@
+$black:             #222222;
+$black-medium:      #333333;
+$white:             #ffffff;
+$light:             #f5f5f5;
+$primary:           $black;
+$secondary:         #cce178;
+$success:           #d85abb;
+$info:              #17a2b8;
+$warning:           #ffc107;
+$danger:            #dc3545;
+$dark:              #343a40;
+$gray:              #777777;
+
+$border-radius-btn: 5px;
+
+$font-family-base:            'Roboto', sans-serif;
+$font-color-base:             $black;
+$font-size-base:              1rem !default; // Базовый размер шрифта
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-medium:          500;
+$font-weight-bold:            700;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal;
+$line-height-base:            1.425 !default;
+
+$h1-font-size:                32 !default;
+$h2-font-size:                28 !default;
+$h3-font-size:                24 !default;
+$h4-font-size:                20 !default;
+$h5-font-size:                18 !default;
+$h6-font-size:                16 !default;
+
+$link-color:                  $primary;
+$link-decoration:             none;
+$link-hover-color:            lighten($primary, 10%) !default;
+$link-hover-decoration:       none;
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+    (
+      0: 0,
+      1: ($spacer * .25),
+      2: ($spacer * .5),
+      3: $spacer,
+      4: ($spacer * 1.5),
+      5: ($spacer * 3)
+    ),
+    $spacers
+);
+
+$sizes: () !default;
+$sizes: map-merge(
+    (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto
+    ),
+    $sizes
+);
+
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-font-family:        null !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              null !default;
+
+/*Scroll-bar settings*/
+$fireFoxTrackColor:           rgba($primary, .1);
+$fireFoxThumbColor:           $primary;
+
+$chromeTrackColor:            rgba($primary, .1);
+$chromeThumbColor:            $primary;
+$chromeTrackWidth:            .5rem;
+
+/*Transitions*/
+$trs: .4s;
+
+$emphasized-link-hover-darken-percentage: 15% !default;
+
+$paragraph-margin-bottom:   1rem !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  m:  413px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1170px,
+  vl: 1470px
+);
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+$container-max-widths: (
+  m:  408px,
+  sm: 540px,
+  md: 740px,
+  lg: 984px,
+  xl: 1140px,
+  vl: 1440px
+);
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+$grid-columns:                12;
+$grid-gutter-width:           30px;
+
+/*Responsive font-size settings*/
+$rfs-minimum-font-size              : 16px;
+$rfs-font-size-unit                 : rem;
+$rfs-breakpoint                     : 1170px;
+$rfs-breakpoint-unit                : px;
+$rfs-two-dimensional                : false;
+$rfs-factor                         : 10;
+$rfs-class                          : false;
+$rfs-rem-value                      : 16;
+$rfs-safari-iframe-resize-bug-fix   : false;
+$enable-responsive-font-sizes       : true;

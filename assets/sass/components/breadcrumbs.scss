@@ -1,0 +1,48 @@
+.bread-crumbs {
+  .title {
+    margin-top: 1.5rem;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    list-style: none;
+    margin-bottom: 0;
+    li {
+      flex: 0 0 auto;
+      color: $gray-dark;
+      font-size: $fz-14;
+      line-height: 1.2em;
+      letter-spacing: .35/14+em;
+      a {
+        color: $primary;
+        font-weight: inherit;
+        line-height: inherit;
+        word-break: inherit;
+        position: relative;
+        display: block;
+        letter-spacing: inherit;
+        text-decoration: none;
+        padding-right: 2em;
+        transition: color $trs;
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          content: "";
+          bottom: 0;
+          width: 2em;
+          margin: 0;
+          @include background('../img/svg/arrow-link.svg', $size: 50%, $rep: no-repeat, $pos: 50% 50%);
+          transition: transform $trs;
+        }
+        &:hover {
+          color: $link-hover-color;
+          &::after {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+  }
+}

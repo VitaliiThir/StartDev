@@ -1,0 +1,8 @@
+mixin modal(id)
+	.modal.micromodal-slide(aria-hidden="true")
+		.modal__overlay(tabindex="-1" data-modal-close)
+			.modal__container(role="dialog" aria-modal="true")
+				if block
+					block
+				.modal__close(data-modal-close)
+					+icon('close')

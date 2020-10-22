@@ -67,6 +67,14 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin stepsTransition($ql: 10, $t: 1s) {
+  @for $i from 1 through $ql {
+    &:nth-child(#{$i}) {
+      transition-delay: $i * ($t / $ql);
+    }
+  }
+}
+
 @mixin formError($colorError: red, $borderError: inherit, $borderValid: inherit, $fz: 14px) {
   label.error {
     position: absolute;

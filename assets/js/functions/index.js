@@ -302,3 +302,49 @@ export function targetClickEl() {
     }
   });
 }
+
+export function inputPhoneMask() {
+  let input = $('input[name="user_phone"]');
+
+  input.attr('placeholder', '+7(___) ___-__-__');
+
+  input.one('click', function(){
+    $(this).setCursorPosition(3);
+  }).mask("+7(999) 999-99-99");
+
+  $.fn.setCursorPosition = function(pos) {
+    if ($(this).get(0).setSelectionRange) {
+      $(this).get(0).setSelectionRange(pos, pos);
+    } else if ($(this).get(0).createTextRange) {
+      let range = $(this).get(0).createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  };
+}
+
+export function ntf(header, main, delay, error) {
+  let ntf = '.ntf',
+      mh = '.ntf-header',
+      mm = '.ntf-main',
+      close = '.ntf-close';
+
+  $(mh).html(header);
+  $(mm).html(main);
+
+  if (error) {
+    $(ntf).addClass('is-open').addClass('ntf-error');
+  } else {
+    $(ntf).addClass('is-open')
+  }
+
+  $(close).on('click', function () {
+    $(ntf).removeClass('is-open')
+  });
+
+  setTimeout(() => {
+    $(close).trigger('click');
+  }, delay ? delay : $v.ntfSpeed)
+}

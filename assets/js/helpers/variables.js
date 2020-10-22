@@ -4,5 +4,6 @@ export const variables = {
 	$body: $('body'),
 	animDuration: 250, // in ms
 	header: $('.header'),
-	main: $('main')
+	main: $('main'),
+	ntfSpeed: 6000
 };

@@ -1,0 +1,80 @@
+.ntf {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-150%);
+  transition: transform 0.35s ease-in-out;
+  will-change: transform;
+}
+
+.ntf-container {
+  max-width: 400px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 1rem 3rem 0 rgba($black, 0.15);
+  overflow: hidden;
+  border: 1px solid $primary;
+  background-color: $white;
+}
+
+.ntf-header {
+  color: $black;
+  @include rfs(24);
+  font-weight: $font-weight-bold;
+  text-align: center;
+  background-color: $primary;
+  padding: 0.5rem 1rem;
+}
+
+.ntf-main {
+  @include rfs(18);
+  padding: 1rem;
+}
+
+.ntf-foo {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.ntf-close {
+  position: relative;
+  width: 1.2rem;
+  height: 1.4rem;
+  cursor: pointer;
+  svg {
+    @include absoluteCenter;
+    fill: $primary;
+    transition: fill 0.2s;
+  }
+  &:hover {
+    svg {
+      fill: $link-hover-color;
+    }
+  }
+}
+
+.ntf.ntf-error {
+  .ntf-header {
+    color: $white;
+    background-color: $danger;
+  }
+  .ntf-container {
+    border-color: $danger;
+  }
+  .ntf-close svg {
+    fill: $danger;
+  }
+  .ntf-close:hover svg {
+    fill: lighten(#d9534f, 10%);
+  }
+}
+
+//Animation
+.ntf.is-open {
+  transform: translateY(0);
+}

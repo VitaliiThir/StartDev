@@ -9,3 +9,15 @@
 @function get-breakpoints($key: '') {
   @return map-get($container-max-widths, $key);
 }
+
+@function height-percent($w, $h) {
+  @return (($h / $w) * 100) / 100;
+}
+
+@function width-vw($parW, $elW) {
+  @return $elW / $parW * 100vw;
+}
+
+@function indent-percent($w, $h) {
+  @return (($h / $w) * 100%);
+}

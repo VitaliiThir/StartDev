@@ -4,25 +4,7 @@ block variables
 block mixins
 
 html(lang="ru")
-	head
-		meta(charset="utf-8")
-		meta(http-equiv="x-ua-compatible" content="ie=edge")
-		meta(name="viewport" content="width=device-width, initial-scale=1")
-		meta(name="application-name" content="WEB Development")
-		meta(name="msapplication-TileColor" content="#333333")
-		meta(name="theme-color" content="#333333")
-		meta(name="description" content="Description of the page less than 150 characters")
-		title #{titles[titles.length - 1]}
-		//Favicon
-		block favicon
-			link(rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png")
-			link(rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png")
-			link(rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png")
-			link(rel="manifest" href="./img/favicon/site.webmanifest")
-		//Styles
-		block styles
-			link(rel="stylesheet" href="./css/libs.css")
-			link(rel="stylesheet" href="./css/common.css")
+	include ../components/head
 	body
 		//Header
 		include ../components/header

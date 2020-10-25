@@ -1,6 +1,6 @@
 module.exports = [
 	'./gulp/tasks/html',
-	'./gulp/tasks/sass',
+	'./gulp/tasks/scss',
 	'./gulp/tasks/js',
 	'./gulp/tasks/server',
 	'./gulp/tasks/watch',

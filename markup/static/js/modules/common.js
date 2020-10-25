@@ -1,4 +1,4 @@
-import { variables as $v } from '../helpers/variables';
+import { variables as $v } from '../vars/common';
 
 export function typicalTableWrap() {
   let typicalTableWrap = '<div class="typical-table-wrap"></div>';
@@ -74,12 +74,25 @@ export function scrollActiveMenu() {
 
   headerLink.each(function () {
     let selector = $(this).children().attr('href');
-    let windowTop = $(window).scrollTop();
+    let windowTop = $($v.$window).scrollTop();
     let sectionTop = $(selector).offset().top;
     if (windowTop > sectionTop - 100) {
       headerLink.removeClass('selected').filter(this).addClass('selected');
     }
   });
+}
+
+export function pulseClick() {
+
+  [].map.call(document.querySelectorAll('.ripple'), el=> {
+    el.addEventListener('click',e => {
+      e = e.touches ? e.touches[0] : e;
+      const r = el.getBoundingClientRect(), d = Math.sqrt(Math.pow(r.width,2)+Math.pow(r.height,2)) * 2;
+      el.style.cssText = `--s: 0; --o: 1;`;  el.offsetTop;
+      el.style.cssText = `--t: 1; --o: 0; --d: ${d}; --x:${e.clientX - r.left}; --y:${e.clientY - r.top};`
+    })
+  })
+
 }
 
 export function objectFitFromIe() {
@@ -198,7 +211,7 @@ export function objectFitFromIe() {
       imageCover.imageResponsive();
 
       $v.$window.on('resize', function () {
-        let winWidth = $v.$window.width();
+        let winWidth = $(this).width();
 
         if (winWidth >= 1200 || winWidth >= 992 || winWidth >= 768 || winWidth >= 576 || winWidth > 375) {
           setTimeout(function () {
@@ -260,41 +273,6 @@ export function citySelectActions() {
   }
 }
 
-export function supportActions() {
-  let support = $('.tech-support-block'),
-      supportItem = $('.x-user-cause li, .x-user-cause-sup li'),
-      submit = $('.contacts-submit');
-
-  supportItem.each(function () {
-    if ($(this).text() === 'Техническая поддержка') {
-      $(this).addClass('tech-support')
-    } else if ($(this).text() === 'Сотрудничество') {
-      $(this).addClass('cooperation')
-    }
-  });
-
-  supportItem.on('click', function () {
-
-    if ($(this).hasClass('tech-support')) {
-      support.addClass('visible');
-    } else {
-      support.removeClass('visible')
-    }
-
-    if ($(this).hasClass('cooperation')) {
-      submit.removeClass('active');
-      $('.contacts-submit[value="info"]').addClass('active');
-    } else if ($(this).hasClass('tech-support')) {
-      submit.removeClass('active');
-      $('.contacts-submit[value="support"]').addClass('active');
-    } else {
-      submit.removeClass('active');
-      $('.contacts-submit[value="sale"]').addClass('active');
-    }
-  })
-
-}
-
 export function targetClickEl() {
   $(document).mouseup(function (e) {
     if (!$('selector').is(e.target) && $('selector').has(e.target).length === 0) {
@@ -346,5 +324,5 @@ export function ntf(header, main, delay, error) {
 
   setTimeout(() => {
     $(close).trigger('click');
-  }, delay ? delay : $v.ntfSpeed)
+  }, delay ? delay : $v.$ntfSpeed)
 }

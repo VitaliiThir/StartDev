@@ -9,13 +9,14 @@ html(lang="ru")
 		//Header
 		include ../components/header
 		//Header End
-		// Bread crumbs
-		include ../components/breadcrumbs
-		// Bread crumbs END
+		if breadCrumbs
+			// Bread crumbs
+			include ../components/breadcrumbs
+			// Bread crumbs END
 		block content
 		//Footer
 		include ../components/footer
 		//Footer END
 		block scripts
-			include global/scripts
+			include scripts/global
 

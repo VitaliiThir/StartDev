@@ -6,8 +6,8 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   entry: {
-    common: './assets/js/index.js',
-    //main: './assets/js/pages/main-page.js'
+    common: './markup/static/js/index.js',
+    //main: './markup/static/main-page.js'
   },
   output: {
     filename: '[name].min.js',

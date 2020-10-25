@@ -1,7 +1,10 @@
-extends ../layout/main
+extends ../layout/default
 block variables
   - var titles = ['Start Dev'];
+  - var breadCrumbs = false;
 block mixins
   include ../mixins/index
 block content
   main.main-page
+block append scripts
+  script(src="./js/common.min.js")

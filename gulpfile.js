@@ -3,7 +3,7 @@
 global.$ = {
     gulp: require('gulp'),
     fileinclude: require('gulp-file-include'),
-    sass: require('gulp-sass'),
+    scss: require('gulp-sass'),
     sourcemaps: require('gulp-sourcemaps'),
     autoprefixer: require('gulp-autoprefixer'),
     browserSync: require('browser-sync').create(),
@@ -45,14 +45,14 @@ global.$ = {
     path: {
         tasks: require('./gulp/config/tasks.js'),
         src: {
-            pug: 'pages/*.pug',
-            html: 'html/*.html',
-            sass: 'assets/sass/*.scss',
-            js: 'assets/js/*.js',
-            fonts: 'assets/fonts/**/*.*',
-            img: 'assets/img/images/**/*.*',
-            svg: 'assets/img/sprite/*.svg',
-            libs: 'js-libs/*.js'
+            pug: 'markup/pages/*.pug',
+            html: 'markup/html/*.html',
+            scss: 'markup/static/scss/*.scss',
+            js: 'markup/static/js/*.js',
+            fonts: 'markup/static/fonts/**/*.*',
+            img: 'markup/static/img/images/**/*.*',
+            svg: 'markup/static/img/sprite/*.svg',
+            libs: 'markup/static/js/global/**/*.js'
         },
         build: {
             pug: 'build/',
@@ -61,18 +61,29 @@ global.$ = {
             js: 'build/js/',
             fonts: 'build/fonts/',
             img: 'build/img/',
-            libs: 'build/js-libs/'
+            libs: 'build/global-js/'
         },
         isWatchMode: false,
         watch: {
-            pug: ['pages/*.pug', 'layout/**/*.pug', 'mixins/**/*.pug', 'components/**/*.pug'],
+            pug: [
+                'markup/pages/*.pug',
+                'markup/layout/**/*.pug',
+                'markup/mixins/**/*.pug',
+                'markup/components/**/*.pug'
+            ],
             html: 'html/*.html',
-            sass: ['assets/sass/*.scss','assets/sass/components/**/*.scss', 'assets/sass/mixins/**/*.scss', 'assets/sass/global/*.scss', 'assets/sass/helpers/*.scss', 'assets/sass/plugins/*.scss'],
-            js: 'assets/js/**/*.js',
-            img: 'assets/img/images/**/*.*',
-            svg: 'assets/img/sprite/*.svg',
-            fonts: 'assets/fonts/**/*.*',
-            libs: 'libs/**/*.js'
+            scss: [
+                'markup/static/scss/*.scss',
+                'markup/static/scss/components/**/*.scss',
+                'markup/static/scss/mixins/**/*.scss',
+                'markup/static/scss/global/*.scss',
+                'markup/static/scss/helpers/*.scss',
+                'markup/static/scss/plugins/*.scss'
+            ],
+            js: 'markup/static/js/**/*.js',
+            img: 'markup/static/img/images/**/*.*',
+            svg: 'markup/static/img/sprite/*.svg',
+            fonts: 'markup/fonts/**/*.*'
         }
     }
 };
@@ -82,15 +93,15 @@ $.emitty.language({
     parser: require('@emitty/language-pug').parse
 });
 
-$.sass.compiler = require('node-sass');
+$.scss.compiler = require('node-sass');
 
 $.path.tasks.forEach((taskPath) => require(taskPath)());
 
 $.gulp.task('common', $.gulp.series('clean', $.gulp.parallel('pug', 'html', 'fonts', 'svg', 'libs')));
 
-$.gulp.task('dev', $.gulp.series('sass:development', 'js:development', 'img:development',));
+$.gulp.task('dev', $.gulp.series('scss:development', 'js:development', 'img:development',));
 
-$.gulp.task('build', $.gulp.series('common', $.gulp.parallel('sass:production', 'js:production', 'img:production',),
+$.gulp.task('build', $.gulp.series('common', $.gulp.parallel('scss:production', 'js:production', 'img:production',),
     function completion(done) {
         done();
         process.exit();

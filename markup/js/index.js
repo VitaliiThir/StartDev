@@ -1,4 +1,4 @@
-import { variables as $v } from "./vars/common";
+import { variables as $v } from "./vars/global";
 import { objectFitFromIe, typicalTableWrap, pulseClick } from './modules/common';
 
 $(function () {

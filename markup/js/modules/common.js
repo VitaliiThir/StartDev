@@ -1,4 +1,4 @@
-import { variables as $v } from '../vars/common';
+import { variables as $v } from '../vars/global';
 
 export function typicalTableWrap() {
   let typicalTableWrap = '<div class="typical-table-wrap"></div>';

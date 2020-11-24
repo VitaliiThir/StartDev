@@ -11,7 +11,7 @@ module.exports = function () {
   });
 
   $.gulp.task('scss:production', function () {
-    return $.gulp.src($.path.src.scss)
+    return $.gulp.src($.path.src.scss) 
         .pipe($.scss({ outputStyle: 'compressed' }).on('error', $.scss.logError))
         .pipe($.autoprefixer())
         .pipe($.stripCss())

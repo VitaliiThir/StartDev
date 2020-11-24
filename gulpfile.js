@@ -45,14 +45,14 @@ global.$ = {
     path: {
         tasks: require('./gulp/config/tasks.js'),
         src: {
-            pug: 'markup/pages/*.pug',
+            pug: 'markup/pug/pages/*.pug',
             html: 'markup/html/*.html',
-            scss: 'markup/static/scss/*.scss',
-            js: 'markup/static/js/*.js',
-            fonts: 'markup/static/fonts/**/*.*',
-            img: 'markup/static/img/images/**/*.*',
-            svg: 'markup/static/img/sprite/*.svg',
-            libs: 'markup/static/js/global/**/*.js'
+            scss: 'markup/scss/*.scss',
+            js: 'markup/js/*.js',
+            fonts: 'markup/fonts/**/*.*',
+            img: 'markup/img/images/**/*.*',
+            svg: 'markup/img/sprite/*.svg',
+            libs: 'markup/js/global/**/*.js'
         },
         build: {
             pug: 'build/',
@@ -66,23 +66,23 @@ global.$ = {
         isWatchMode: false,
         watch: {
             pug: [
-                'markup/pages/*.pug',
-                'markup/layout/**/*.pug',
-                'markup/mixins/**/*.pug',
-                'markup/components/**/*.pug'
+                'markup/pug/pages/*.pug',
+                'markup/pug/layout/**/*.pug',
+                'markup/pug/mixins/**/*.pug',
+                'markup/pug/components/**/*.pug'
             ],
-            html: 'html/*.html',
+            html: 'markup/html/*.html',
             scss: [
-                'markup/static/scss/*.scss',
-                'markup/static/scss/components/**/*.scss',
-                'markup/static/scss/mixins/**/*.scss',
-                'markup/static/scss/global/*.scss',
-                'markup/static/scss/helpers/*.scss',
-                'markup/static/scss/plugins/*.scss'
+                'markup/scss/*.scss',
+                'markup/scss/components/**/*.scss',
+                'markup/scss/mixins/**/*.scss',
+                'markup/scss/global/*.scss',
+                'markup/scss/helpers/*.scss',
+                'markup/scss/plugins/*.scss'
             ],
-            js: 'markup/static/js/**/*.js',
-            img: 'markup/static/img/images/**/*.*',
-            svg: 'markup/static/img/sprite/*.svg',
+            js: 'markup/js/**/*.js',
+            img: 'markup/img/images/**/*.*',
+            svg: 'markup/img/sprite/*.svg',
             fonts: 'markup/fonts/**/*.*'
         }
     }

@@ -2,10 +2,6 @@ module.exports = function () {
 
   $.gulp.task('scss:development', function () {
     return $.gulp.src($.path.src.scss)
-
-        .pipe($.aliases({
-          "nm": "./node_modules"
-        }))
         .pipe($.sourcemaps.init())
         .pipe($.scss({ outputStyle: 'compact' }).on('error', $.scss.logError))
         .pipe($.autoprefixer())

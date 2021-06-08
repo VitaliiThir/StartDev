@@ -1,14 +1,23 @@
 import { variables as $v } from "./vars/global";
-import { objectFitFromIe, typicalTableWrap, pulseClick } from './modules/common';
+import { typicalTableWrap, pulseClick, ntf } from './modules/';
 
 $(function () {
-  objectFitFromIe();
+
   typicalTableWrap();
 
-  //==============Одинаковая высота элементов================
-  //$('.class').matchHeight();
+  MicroModal.init({
+    onShow: modal => {},
+    onClose: modal => {},
+    openTrigger: 'data-modal-open',
+    closeTrigger: 'data-modal-close',
+    openClass: 'is-open',
+    disableScroll: true,
+    awaitOpenAnimation: true,
+    awaitCloseAnimation: true
+  });
 
-  pulseClick();
+  // $('.class').matchHeight(); // Равная высота
+  // pulseClick();
 
 });
 

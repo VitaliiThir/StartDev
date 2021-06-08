@@ -52,7 +52,7 @@ global.$ = {
             fonts: 'markup/fonts/**/*.*',
             img: 'markup/img/images/**/*.*',
             svg: 'markup/img/sprite/*.svg',
-            libs: 'markup/js/global/**/*.js'
+            libs: 'markup/js/libs/*.js'
         },
         build: {
             pug: 'build/',
@@ -61,7 +61,7 @@ global.$ = {
             js: 'build/js/',
             fonts: 'build/fonts/',
             img: 'build/img/',
-            libs: 'build/global-js/'
+            libs: 'build/js/libs/'
         },
         isWatchMode: false,
         watch: {

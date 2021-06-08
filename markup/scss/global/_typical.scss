@@ -34,13 +34,12 @@
   }
   p, ul li, ol li, cite, blockquote {
     word-break: break-word;
-    letter-spacing: .35/14+em;
   }
   p, ul li, ol li, cite, blockquote, table {
-    font-size: 14px;
+    font-size: $font-size-base;
   }
   p, cite, blockquote {
-    line-height: 28/14+em;
+    line-height: 28/$font-size-base+em;
   }
   blockquote {
     font-style: italic;
@@ -52,7 +51,7 @@
     }
   }
   img {
-    margin-bottom: rem(15px);
+    margin-bottom: 1rem;
     max-width: 100%;
   }
   a {
@@ -123,7 +122,7 @@
     td, th {
       color: $black-medium;
       font-size: $font-size-base;
-      line-height: 20/14+em;
+      line-height: 20/$font-size-base+em;
       border: 1px solid $gray;
       padding: 1em;
       word-break: normal;

@@ -15,9 +15,14 @@
   }
 }
 
-.dev-btn-transparent {
+.dev-btn-primary {
   color: $white;
-  border: 1px solid rgba($white, .3);
+  background-color: $primary;
+  border: none;
+  &:hover {
+    color: $white;
+    background-color: lighten($primary, 5%);
+  }
 }
 
 .dev-btn-secondary {
@@ -31,26 +36,8 @@
     background-color: darken($secondary, 10%);
     color: $white;
     a {
-      color: $white;
+      color: inherit;
     }
-  }
-}
-
-.dev-btn-white {
-  border: 1px solid $gray;
-  background-color: $white;
-  &:hover {
-    background-color: $gray;
-  }
-}
-
-.dev-btn-primary {
-  color: $white;
-  background-color: $primary;
-  border: none;
-  &:hover {
-    color: $white;
-    background-color: $primary;
   }
 }
 
@@ -59,14 +46,6 @@
   background-color: $success;
   &:hover {
     color: $white;
-    background-color: $success;
-  }
-}
-
-.dev-btn-gray {
-  font-weight: $font-weight-medium;
-  border: 1px solid $gray;
-  &:hover {
-    background-color: $gray;
+    background-color: lighten($success, 5%);
   }
 }

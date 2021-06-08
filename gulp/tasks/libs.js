@@ -1,6 +1,6 @@
 module.exports = function () {
   $.gulp.task('libs', function () {
-    return $.gulp.src($.path.src.libs, {since: $.gulp.lastRun('libs')})
+    return $.gulp.src($.path.src.libs)
         .on('error', function (error) {
           console.log(`Error : ${error.message}`);
           this.emit('end');

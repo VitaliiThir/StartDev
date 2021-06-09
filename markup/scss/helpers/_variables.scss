@@ -3,17 +3,20 @@ $black-medium:      #333333;
 $white:             #ffffff;
 $light:             #f5f5f5;
 $primary:           $black-medium;
-$secondary:         #cce178;
+$secondary:         #999999;
 $success:           #D4EDDA;
 $info:              #D1ECF1;
 $warning:           #FFF3CD;
 $danger:            #f8d7da;
-$dark:              #343a40;
-$gray:              #777777;
+$gray:              #666666;
 
 $modal-overlay-color:         rgba($black, .9);
 $border-radius:               5px;
 $border-radius-btn:           5px;
+
+// Transitions
+$trs:                         250ms;
+$trs-2:                       400ms;
 
 $body-bg:                     $white;
 $body-color:                  $black;
@@ -31,6 +34,8 @@ $font-weight-bolder:          bolder !default;
 
 $font-weight-base:            $font-weight-normal;
 $line-height-base:            1.425 !default;
+$emphasized-link-hover-darken-percentage: 15% !default;
+$paragraph-margin-bottom:   1rem !default;
 
 $h1-font-size:                32 !default;
 $h2-font-size:                28 !default;
@@ -39,9 +44,9 @@ $h4-font-size:                20 !default;
 $h5-font-size:                18 !default;
 $h6-font-size:                16 !default;
 
-$link-color:                  $secondary;
+$link-color:                  #0f7afc !default;
 $link-decoration:             none;
-$link-hover-color:            lighten($secondary, 10%) !default;
+$link-hover-color:            lighten($link-color, $emphasized-link-hover-darken-percentage) !default;
 $link-hover-decoration:       none;
 
 $spacer: 1rem !default;
@@ -83,13 +88,6 @@ $fireFoxThumbColor:           $primary;
 $chromeTrackColor:            rgba($primary, .1);
 $chromeThumbColor:            $primary;
 $chromeTrackWidth:            .5rem;
-
-/*Transitions*/
-$trs: .4s;
-
-$emphasized-link-hover-darken-percentage: 15% !default;
-
-$paragraph-margin-bottom:   1rem !default;
 
 $grid-breakpoints: (
   xs: 0,

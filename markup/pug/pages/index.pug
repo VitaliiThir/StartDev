@@ -1,10 +1,18 @@
 extends ../layout/default
 block variables
-  - var titles = ['Start Dev'];
+  -
+    var titles = [
+    {
+    name: 'Start Dev',
+    path: ''
+    }
+    ];
   - var breadCrumbs = false;
 block mixins
   include ../mixins/index
 block content
   main.main-page
+    .container
+      include ../components/typical
 block append scripts
   script(src="./js/common.min.js")

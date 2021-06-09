@@ -3,22 +3,21 @@
     .scroll-wrapper__item
       .bread-crumbs-list
         ul
+          li
+            |
+            |
+            a(href="index.html") Главная
+            |
+            |
           each title, i in titles
-            if i <= 0
+            if i !== titles.length - 1
               li
                 |
                 |
-                a(href="common.js.html") Главная
-                |
-                |
-            else if i > 0 && i < titles.length - 1
-              li
-                |
-                |
-                a(href="#")= title
+                a(href="" + title.path)= title.name
                 |
                 |
             else
-              li <span>#{title}</span>
+              li <span>#{title.name}</span>
   .title.title-first.page-title
-    h1= titles[titles.length - 1]
+    h1= titles[titles.length - 1].name

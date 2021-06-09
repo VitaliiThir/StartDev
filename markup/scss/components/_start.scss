@@ -1,0 +1,39 @@
+.header, .footer {
+  @include rfs(40);
+  color: $secondary;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  padding: .5rem 0;
+  background-color: rgba($black, .95);
+  line-height: 1;
+}
+
+.header {
+  border-bottom: 1px solid #555;
+}
+
+.footer {
+  border-top: 1px solid #666;
+}
+
+.main-page {
+  @include background('../img/temp-background.jpg');
+  &, .container, .example, .typical {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .container {
+    .example {
+      background-color: $light;
+      padding: 1rem;
+    }
+  }
+  .example {
+    .content {
+      @include absoluteCenter();
+      @include rfs(40);
+      font-weight: $font-weight-bold;
+    }
+  }
+}

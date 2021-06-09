@@ -17,7 +17,7 @@ $(function () {
   });
 
   // $('.class').matchHeight(); // Равная высота
-  // pulseClick();
+  pulseClick();
 
 });
 

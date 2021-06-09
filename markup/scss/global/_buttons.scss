@@ -1,3 +1,11 @@
+$color-darker:    60%;
+$btn-primary:     $primary;
+$btn-secondary:   $secondary;
+$btn-success:     $success;
+$btn-info:        $info;
+$btn-warning:     $warning;
+$btn-danger:      $danger;
+
 .dev-btn {
   display: inline-flex;
   color: initial;
@@ -5,47 +13,65 @@
   text-align: center;
   line-height: 1;
   text-decoration: none;
-  padding: 1rem 2.06rem;
+  padding: .9rem 2.06rem;
   cursor: pointer;
   border-radius: $border-radius-btn;
-  transition: all $trs;
+  transition: all $trs-2;
   &:hover {
-    color: inherit;
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }
 
 .dev-btn-primary {
   color: $white;
-  background-color: $primary;
-  border: none;
+  background-color: $btn-primary;
   &:hover {
     color: $white;
-    background-color: lighten($primary, 5%);
+    background-color: darken($btn-primary, $emphasized-link-hover-darken-percentage);
   }
 }
 
 .dev-btn-secondary {
-  background-color: $secondary;
+  background-color: $btn-secondary;
   color: $white;
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
   &:hover {
-    background-color: darken($secondary, 10%);
+    background-color: darken($btn-secondary, $emphasized-link-hover-darken-percentage);
     color: $white;
-    a {
-      color: inherit;
-    }
   }
 }
 
 .dev-btn-success {
-  color: $white;
-  background-color: $success;
+  color: darken($btn-success, $color-darker);
+  background-color: $btn-success;
   &:hover {
-    color: $white;
-    background-color: lighten($success, 5%);
+    color: darken($btn-success, $color-darker + $emphasized-link-hover-darken-percentage);
+    background-color: darken($btn-success, $emphasized-link-hover-darken-percentage);
   }
 }
+
+.dev-btn-info {
+  color: darken($btn-info, $color-darker);
+  background-color: $btn-info;
+  &:hover {
+    color: darken($btn-info, $color-darker + $emphasized-link-hover-darken-percentage);
+    background-color: darken($btn-info, $emphasized-link-hover-darken-percentage);
+  }
+}
+.dev-btn-warning {
+  color: darken($btn-warning, $color-darker);
+  background-color: $btn-warning;
+  &:hover {
+    color: darken($btn-warning, $color-darker + $emphasized-link-hover-darken-percentage);
+    background-color: darken($btn-warning, $emphasized-link-hover-darken-percentage);
+  }
+}
+
+.dev-btn-danger {
+  color: darken($btn-danger, $color-darker);
+  background-color: $btn-danger;
+  &:hover {
+    color: darken($btn-danger, $color-darker + $emphasized-link-hover-darken-percentage);
+    background-color: darken($btn-danger, $emphasized-link-hover-darken-percentage);
+  }
+}
+

@@ -1,5 +1,5 @@
 mixin modal(id)
-	.modal.micromodal-slide(aria-hidden="true")
+	.modal.micromodal-slide(aria-hidden="true" id="" + id)
 		.modal__overlay(tabindex="-1" data-modal-close)
 			.modal__container(role="dialog" aria-modal="true")
 				if block

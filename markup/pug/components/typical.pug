@@ -1,0 +1,73 @@
+include ../mixins/modal
+include ../mixins/button
+.example
+  .typical
+    .row
+      .col-xl-4
+        h1 Заголовок 1-ого уровня
+        h2 Заголовок 2-ого уровня
+        h3 Заголовок 3-его уровня
+        h4 Заголовок 4-ого уровня
+        h5 Заголовок 5-ого уровня
+        h6 Заголовок 6-ого уровня
+      .col-xl-4
+        ul
+          li Маркированный список
+          li Маркированный список
+            ul
+              li Маркированный список
+              li Маркированный список
+              li Маркированный список
+          li Маркированный список
+      .col-xl-4
+        ol
+          li Нумерованный список
+          li Нумерованный список
+            ol
+              li Нумерованный список
+              li Нумерованный список
+                ol
+                  li Нумерованный список
+                  li Нумерованный список
+                  li Нумерованный список
+              li Нумерованный список
+          li Нумерованный список
+      .col-xl-4
+        p <strong>Абзац</strong> рыбатекст поможет <a href="javascript:void(0)">дизайнеру</a>, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбына русском языке
+        blockquote <strong>Цитата</strong> рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке
+      .col-xl-8
+        |
+        |
+        table
+          tr
+            td(colspan="4" class="text-center") <b>Таблица</b>
+          tr.text-center
+            td <b>Название</b>
+            td <b>Название</b>
+            td <b>Название</b>
+            td <b>Название</b>
+          tr.text-center
+            td Значение
+            td Значение
+            td Значение
+            td Значение
+          tr.text-center
+            td Значение
+            td Значение
+            td Значение
+            td Значение
+        |
+        |
+      .col-12.mb-5.mt-4.d-flex.justify-content-around
+        +button('button', 'primary', 'Primary')
+        +button('button', 'secondary', 'Secondary')
+        +button('button', 'success', 'Success')
+        +button('button', 'info', 'Info')
+        +button('button', 'warning', 'Warning')
+        +button('button', 'danger', 'Danger')
+      .col-12.text-center
+        +button('button', 'primary', 'Popup', false, false, 'example')
+      .col-12
+        include ../components/pagination
+  +modal('example')
+    .content Example

@@ -1,9 +1,9 @@
 .typical {
   font-family: $font-family-base;
   h1, h2, h3, h4, h5, h6 {
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
     letter-spacing: .025em;
-    line-height: 1.3125;
+    line-height: $headings-line-height;
   }
   h1 {
     @include rfs($h1-font-size)
@@ -26,11 +26,8 @@
   b, strong {
     font-weight: $font-weight-bold;
   }
-  p, ul, ol, .typical-table-wrap {
-    margin-bottom: 1rem;
-  }
-  cite, blockquote {
-    color: darken($font-color-base, 5%);
+  ul, ol, .typical-table-wrap {
+    margin-bottom: $paragraph-margin-bottom;
   }
   p, ul li, ol li, cite, blockquote {
     word-break: break-word;
@@ -39,12 +36,12 @@
     font-size: $font-size-base;
   }
   p, cite, blockquote {
-    line-height: 28/$font-size-base+em;
+    line-height: $line-height-base;
   }
   blockquote {
     font-style: italic;
     font-weight: $font-weight-normal;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     border-left: 1px solid $secondary;
     @include media-breakpoint-down(m) {
       padding-left: 1rem;
@@ -56,12 +53,12 @@
   }
   a {
     color: $link-color;
-    border-bottom: 1px solid $link-color;
+    border-bottom: 1px solid rgba($link-color, .2);
     transition: all $trs;
     text-decoration: none;
     &:hover {
       color: $link-hover-color;
-      border-color: $link-hover-color;
+      border-color: rgba($link-hover-color, .2);
     }
   }
   cite {
@@ -74,39 +71,75 @@
       display: inline-flex;
       margin-right: .4rem;
     }
+    ul, ol {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+    }
   }
   ol, ul {
-    @include list-reset;
+    @include list-reset();
   }
   ul {
+    padding-left: 1.5rem;
     li {
       &::before {
         position: relative;
         bottom: .1em;
         content: "";
-        width: .4rem;
-        height: .4rem;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         line-height: inherit;
-        background-color: $primary
+        background-color: $secondary;
+        margin-left: -.8rem;
+      }
+      ul {
+        padding-left: .9rem;
+        li {
+          &::before {
+            background: none;
+            border: 1px solid $secondary;
+          }
+        }
       }
     }
   }
   ol {
     counter-reset: counter;
+    padding-left: 1.5rem;
     li {
       &::before {
-        color: $black;
+        color: $secondary;
         counter-increment: counter;
         content: counters(counter, ".");
         font-size: inherit;
         font-weight: $font-weight-bold;
         line-height: inherit;
+        margin-left: -1rem;
       }
       ol {
-        padding-left: 1rem;
-        margin-top: .5rem;
-        margin-bottom: .5rem;
+        padding-left: 2rem;
+        li {
+          &::before {
+            margin-left: -1.9rem;
+          }
+          ol {
+            padding-left: 2.9rem;
+            li{
+              &::before {
+                margin-left: -2.8rem;
+              }
+              ol {
+                padding-left: 3.5rem;
+                li{
+                  &::before {
+                    margin-left: -3.5rem;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -119,11 +152,12 @@
   }
   table {
     border: none;
+    width: 100%;
     td, th {
       color: $black-medium;
       font-size: $font-size-base;
-      line-height: 20/$font-size-base+em;
-      border: 1px solid $gray;
+      line-height: $line-height-base;
+      border: 1px solid $gray-400;
       padding: 1em;
       word-break: normal;
     }

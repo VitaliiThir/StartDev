@@ -14,23 +14,6 @@ $animation-speed: 300ms;
 	align-items: center;
 }
 
-.overlay-blur {
-	display: none;
-	position: fixed;
-	pointer-events: none;
-	z-index: $z-index - 1;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 100vw;
-	height: 100vh;
-	filter: blur(4px);
-	&.active {
-		display: block;
-	}
-}
-
 .modal__container {
 	position: relative;
 	overflow-y: auto;
@@ -53,11 +36,11 @@ $animation-speed: 300ms;
 	background-color: rgba($white, .2);
 	svg {
 		@include absoluteCenter(60%, 60%);
-		transition: fill .2s;
+		transition: fill $trs;
 	}
 	&:hover {
 		svg {
-			fill: $danger;
+			fill: darken($danger, 20%);
 		}
 	}
 }

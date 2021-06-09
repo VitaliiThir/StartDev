@@ -7,7 +7,8 @@
   margin-bottom: rem(32px);
   a {
     text-decoration: none;
-    color: $gray-dark;
+    border-bottom: none;
+    color: $gray-600;
     font-size: 1rem;
     line-height: 1;
     transition: color $trs;
@@ -41,7 +42,7 @@
     }
     &:hover {
       &::after {
-        transform: rotateY(-180deg) translateX(25%);
+        transform: rotateY(-180deg) translateX(15%);
       }
     }
   }
@@ -53,7 +54,7 @@
     }
     &:hover {
       &::after {
-        transform: translateX(25%);
+        transform: translateX(15%);
       }
     }
   }
@@ -72,7 +73,7 @@
       }
       &.selected {
         border-radius: 50%;
-        background-color: $gray-medium;
+        background-color: $gray-300;
         a {
           font-size: inherit;
         }
@@ -81,7 +82,7 @@
         width: 2rem;
         height: 2rem;
         a {
-          font-size: $fz-14 !important;
+          font-size: $font-size-base !important;
         }
       }
     }

@@ -139,4 +139,14 @@ svg {
   }
 }
 
+.lazyloaded {
+  opacity: 0;
+  background-color: #f7f7f7;
+  transition: opacity 600ms;
+}
+
+.lazyloaded {
+  opacity: 1;
+}
+
 @import "../components/start";

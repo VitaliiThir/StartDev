@@ -37,3 +37,17 @@
     }
   }
 }
+
+.lazy-page {
+  .height-block {
+    height: 1500px;
+  }
+
+  .image {
+    @include responsive-ratio(1, .5225, true)
+  }
+
+  img {
+    @include absoluteCenter();
+  }
+}

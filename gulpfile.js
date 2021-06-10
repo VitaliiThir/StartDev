@@ -48,7 +48,7 @@ global.$ = {
             pug: 'markup/pug/pages/*.pug',
             html: 'markup/html/*.html',
             scss: 'markup/scss/*.scss',
-            js: 'markup/js/*.js',
+            js: 'markup/js/index.js',
             fonts: 'markup/fonts/**/*.*',
             img: 'markup/img/images/**/*.*',
             svg: 'markup/img/sprite/*.svg',

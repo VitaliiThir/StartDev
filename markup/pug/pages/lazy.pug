@@ -1,0 +1,31 @@
+extends ../layout/default
+block variables
+  -
+    var titles = [
+    {
+    name: 'Lazy',
+    path: ''
+    }
+    ];
+  - var breadCrumbs = false;
+block mixins
+  include ../mixins/index
+block content
+  main.lazy-page
+    .container
+      .height-block
+        .row
+          each text in ['Сожмите высоту этого элемента другими элементами, которые имеют то же имя', 'Сотмите высоту этого элемента', 'Сожмите высоту этого элемента другими элементами, которые']
+            .col-4
+              .match-height(data-match-height="test" data-match-height-enable="(min-width: 576px)" style="background-color:#ededed")= text
+      .row
+        each src in ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.png', '6.png', '7.png', '8.png', '9.png']
+          .col-4
+            .image
+              |
+              |
+              img.lazyload(data-sizes="auto" data-src="./img/lazy/"+src data-expand="-20")
+              |
+              |
+block append scripts
+  script(src="./js/common.min.js")

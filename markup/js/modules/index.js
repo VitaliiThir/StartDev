@@ -401,8 +401,8 @@ export function ntf(header, main, delay, error) {
   });
 
   setTimeout(() => {
-    myTrigger(close, 'click');
-  }, delay ? delay : $v.$ntfSpeed);
+    nativeTrigger(close, 'click');
+  }, delay ? delay : 6000);
 }
 
 // События "Trigger" (native)

@@ -26,6 +26,9 @@
       @include background('../img/svg/arrow-link.svg', $size: contain);
       transition: transform $trs;
     }
+    span {
+      display: inline-flex;
+    }
     @include media-breakpoint-down(m) {
       font-size: rem(12px);
       &::after {

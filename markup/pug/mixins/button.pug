@@ -1,13 +1,42 @@
-mixin button(type, color, text, link, title, modal)
+mixin button(type, color, text, link, title, modal, input)
   if type === 'button'
     |
     |
-    button(class="dev-btn dev-btn-" + color + " ripple" data-modal-open=(modal ? modal : false))= text
+    button(
+      class="dev-btn dev-btn-" + color + " ripple"
+      title=(title ? title : false)
+      data-modal-open=(modal ? modal : false)
+    )= text
     |
     |
   else if type === 'a'
     |
     |
-    a(href=(link ? link : 'javascript:void(0)') class="dev-btn dev-btn-" + color + " ripple" title=(title ? title : false))= text
+    a(
+      href=(link ? link : 'javascript:void(0)')
+      class="dev-btn dev-btn-" + color + " ripple"
+      title=(title ? title : false)
+      data-modal-open=(modal ? modal : false)
+    )= text
     |
     |
+  else if type === 'submit'
+    if input
+      div(class="dev-btn dev-btn-" + color + " dev-btn-submit ripple")
+        |
+        |
+        input(
+          type="submit"
+          value="" + text
+        )
+        |
+        |
+    else
+      |
+      |
+      button(
+        type="submit"
+        class="dev-btn dev-btn-" + color + " dev-btn-submit ripple"
+      )= text
+      |
+      |

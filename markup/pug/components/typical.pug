@@ -65,8 +65,9 @@ include ../mixins/button
         +button('button', 'info', 'Info')
         +button('button', 'warning', 'Warning')
         +button('button', 'danger', 'Danger')
+        +button('submit', 'primary', 'Submit', false, false, false, true)
       .col-12.text-center
-        +button('button', 'primary', 'Popup', false, false, 'example')
+        +button('a', 'primary', 'Popup', 'javascript:void(0)', false, 'example')
       .col-12
         include ../components/pagination
   +modal('example')

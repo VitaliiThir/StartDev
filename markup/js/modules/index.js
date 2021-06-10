@@ -1,25 +1,13 @@
 import { variables as $v } from '../vars/global';
 
+// Автоматическая обёртка для таблиц на типовых страницах (jQuery)
 export function typicalTableWrap() {
   let typicalTableWrap = '<div class="typical-table-wrap"></div>';
 
   $('.typical').find('table').wrap(typicalTableWrap);
 }
 
-export function sliderSlidesCounter(slider, counterBlock) {
-  slider.on(`init reInit`, function (event, slick) {
-    counterBlock.html(
-        '<div>' + '<span>' + 0 + 1 + '</span>' + ' / ' + '<span>' + (slick.slideCount <= 9 ? 0 : '') + slick.slideCount + '</span>' + '</div>'
-    );
-  });
-
-  slider.on(`afterChange`, function (event, slick, currentSlide) {
-    counterBlock.html(
-        '<div>' + '<span>' + (currentSlide <= 8 ? 0 : '') + (currentSlide + 1) + '</span>' + ' / ' + '<span>' + (slick.slideCount <= 9 ? 0 : '') + slick.slideCount + '</span>' + '</div>'
-    );
-  });
-}
-
+// Скроллинг страницы при клике на кнопку (jQuery)
 export function scrollBtn() {
   let scrollBtn = $('.scroll-button');
 
@@ -38,6 +26,7 @@ export function scrollBtn() {
   });
 }
 
+// Плавный скролл при клике по #anchor (jQuery)
 export function scrollAnimate(speed) {
   let anchor = $('.anchor');
 
@@ -56,6 +45,34 @@ export function scrollAnimate(speed) {
   }
 }
 
+// Плавный скролл при клике по #anchor (native)
+export function nativeScrollAnimate(speed = 1) {
+  let linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
+      V = speed;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
+  for (let i = 0; i < linkNav.length; i++) {
+    linkNav[i].addEventListener('click', function (e) { //по клику на ссылку
+      e.preventDefault(); //отменяем стандартное поведение
+      let w = window.pageYOffset,  // производим прокрутка прокрутка
+          hash = this.href.replace(/[^#]*(.*)/, '$1'),  // к id элемента, к которому нужно перейти
+          t = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
+          start = null;
+      requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
+      function step(time) {
+        if (start === null) start = time;
+        let progress = time - start,
+            r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
+        window.scrollTo(0, r);
+        if (r !== w + t) {
+          requestAnimationFrame(step)
+        } else {
+          location.hash = hash  // URL с хэшем
+        }
+      }
+    }, false);
+  }
+}
+
+// Плавный скролл к элементу при переходе на другую страницу (#anchor) (jQuery)
 export function scrollAnimateUnderPage(speed, timeout) {
   let myHash = location.hash;
 
@@ -68,6 +85,7 @@ export function scrollAnimateUnderPage(speed, timeout) {
   location.hash = '';
 }
 
+// Активные пункты менюя при скроллинге страницы до блока по #anchor (для лэндингов) (jQuery)
 export function scrollActiveMenu() {
 
   let headerLink = $v.header.find('nav li');
@@ -82,19 +100,22 @@ export function scrollActiveMenu() {
   });
 }
 
+// Пульс-эффект при клике (native)
 export function pulseClick() {
 
-  [].map.call(document.querySelectorAll('.ripple'), el=> {
-    el.addEventListener('click',e => {
+  [].map.call(document.querySelectorAll('.ripple'), el => {
+    el.addEventListener('click', e => {
       e = e.touches ? e.touches[0] : e;
-      const r = el.getBoundingClientRect(), d = Math.sqrt(Math.pow(r.width,2)+Math.pow(r.height,2)) * 2;
-      el.style.cssText = `--s: 0; --o: 1;`;  el.offsetTop;
-      el.style.cssText = `--t: 1; --o: 0; --d: ${d}; --x:${e.clientX - r.left}; --y:${e.clientY - r.top};`
+      const r = el.getBoundingClientRect(), d = Math.sqrt(Math.pow(r.width, 2) + Math.pow(r.height, 2)) * 2;
+      el.style.cssText = `--s: 0; --o: 1;`;
+      el.offsetTop;
+      el.style.cssText = `--t: 1; --o: 0; --d: ${ d }; --x:${ e.clientX - r.left }; --y:${ e.clientY - r.top };`
     })
   })
 
 }
 
+// Альтернатива свойства CSS Object-fit для броузера IE (jQuery)
 export function objectFitFromIe() {
   (function ($) {
     $.fn.imageResponsive = function () {
@@ -225,6 +246,7 @@ export function objectFitFromIe() {
   objectFitIe();
 }
 
+// Кнопка Подробнее / Скрыть для просмотра текста (jQuery)
 export function textMoreLess(block, lh, ql, btnMore, btnHidden) {
 
   textMoreEvents();
@@ -260,6 +282,21 @@ export function textMoreLess(block, lh, ql, btnMore, btnHidden) {
   }
 }
 
+// Popup (MicroModal) (jQuery)
+export function modal() {
+  MicroModal.init({
+    onShow: modal => {},
+    onClose: modal => {},
+    openTrigger: 'data-modal-open',
+    closeTrigger: 'data-modal-close',
+    openClass: 'is-open',
+    disableScroll: true,
+    awaitOpenAnimation: true,
+    awaitCloseAnimation: true
+  });
+}
+
+// Функционал для выбора городов (jQuery)
 export function citySelectActions() {
   let cityInput = $('#x-user-city');
 
@@ -273,6 +310,7 @@ export function citySelectActions() {
   }
 }
 
+// События элемента при клике вне него (native)
 export function targetClickEl() {
   $(document).mouseup(function (e) {
     if (!$('selector').is(e.target) && $('selector').has(e.target).length === 0) {
@@ -281,16 +319,17 @@ export function targetClickEl() {
   });
 }
 
+// Маска для номеров телефона (input) (jQuery)
 export function inputPhoneMask() {
   let input = $('input[name="user_phone"]');
 
   input.attr('placeholder', '+7(___) ___-__-__');
 
-  input.one('click', function(){
+  input.one('click', function () {
     $(this).setCursorPosition(3);
   }).mask("+7(999) 999-99-99");
 
-  $.fn.setCursorPosition = function(pos) {
+  $.fn.setCursorPosition = function (pos) {
     if ($(this).get(0).setSelectionRange) {
       $(this).get(0).setSelectionRange(pos, pos);
     } else if ($(this).get(0).createTextRange) {
@@ -303,6 +342,7 @@ export function inputPhoneMask() {
   };
 }
 
+// Окно уведомления при успешной / неуспешной отправке данных из форм (jQuery)
 export function ntfOld(header, main, delay, error) {
   let ntf = '.ntf',
       mh = '.ntf-header',
@@ -327,6 +367,7 @@ export function ntfOld(header, main, delay, error) {
   }, delay ? delay : $v.$ntfSpeed)
 }
 
+// Окно уведомления при успешной / неуспешной отправке данных из форм (native)
 export function ntf(header, main, delay, error) {
   let body = document.querySelector('body'),
       div = document.createElement('div');
@@ -364,33 +405,23 @@ export function ntf(header, main, delay, error) {
   }, delay ? delay : $v.$ntfSpeed);
 }
 
-export function myTrigger(elem, eventType) {
+// События "Trigger" (native)
+export function nativeTrigger(elem, eventType) {
   let event = new Event(eventType);
   elem.dispatchEvent(event);
 }
 
-export function nativeScrollAnimate(speed = 1) {
-  let linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
-      V = speed;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
-  for (let i = 0; i < linkNav.length; i++) {
-    linkNav[i].addEventListener('click', function (e) { //по клику на ссылку
-      e.preventDefault(); //отменяем стандартное поведение
-      let w = window.pageYOffset,  // производим прокрутка прокрутка
-          hash = this.href.replace(/[^#]*(.*)/, '$1'),  // к id элемента, к которому нужно перейти
-          t = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
-          start = null;
-      requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
-      function step(time) {
-        if (start === null) start = time;
-        let progress = time - start,
-            r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
-        window.scrollTo(0, r);
-        if (r !== w + t) {
-          requestAnimationFrame(step)
-        } else {
-          location.hash = hash  // URL с хэшем
-        }
-      }
-    }, false);
-  }
+// Submit loader
+export function submitButton(demo) {
+  let submit = document.querySelectorAll('.dev-btn-submit');
+
+  submit.forEach(btn => btn.addEventListener('click', function () {
+    btn.classList.add('loader');
+
+    if (demo) {
+      setTimeout(() => {
+        btn.classList.remove('loader');
+      }, 800)
+    }
+  }));
 }

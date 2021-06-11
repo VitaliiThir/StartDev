@@ -1,0 +1,28 @@
+.scroll-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(200%);
+  transition: all $trs;
+  &__item {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    pointer-events: all;
+    background-color: $primary;
+    border: 1px solid $gray-600;
+    @include background('../img/svg/scroll-up.svg', $size:35%);
+  }
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

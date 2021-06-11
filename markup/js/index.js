@@ -1,12 +1,21 @@
 import 'lazysizes/lazysizes.min';
 import MatchHeight from '@tannerhodges/match-height';
-import { typicalTableWrap, pulseClick, modal, submitButton } from './modules/';
+import { phoneMask } from "./modules/common/phoneMask";
+import { submitButton } from './modules/common/submitButton';
+import { pulseClick } from "./modules/common/pulseClick";
+import { modal } from "./modules/common/modal";
+import { typicalTableWrap } from "./modules/common/typicalTableWrap";
+import { scrollAnimate } from "./modules/common/scrollAnimate";
+import { scrollButton } from "./modules/common/scrollButton";
 
 document.addEventListener('DOMContentLoaded', function(){
-  //typicalTableWrap(); // Автоматическая обёртка для таблиц на типовых страницах (jQuery)
-  pulseClick(); // Пульс-эффект при клике (native)
-  modal(); // Popup (MicroModal)
-  submitButton(true); // Submit loader
+  typicalTableWrap();
+  scrollButton();
+  scrollAnimate(0.4);
+  phoneMask();
+  pulseClick();
+  modal();
+  submitButton(true);
 });
 
 

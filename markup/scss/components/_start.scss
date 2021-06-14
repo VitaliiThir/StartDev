@@ -42,12 +42,31 @@
   .height-block {
     height: 1500px;
   }
-
   .image {
     @include responsive-ratio(1, .5225, true)
   }
-
   img {
     @include absoluteCenter();
+  }
+  #swipe {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: $gray-400;
+    user-select: none;
+    transform: translateX(-200%);
+    transition: transform 600ms;
+    nav {
+      ul {
+        @include list-reset(true);
+        li {}
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import 'lazysizes/lazysizes.min';
 import MatchHeight from '@tannerhodges/match-height';
-import { touchSwipe } from "./modules/common/touchSwipe";
+import { touchSwipeMenu } from "./modules/common/touchSwipe";
 import { phoneMask } from "./modules/common/phoneMask";
 import { submitButton } from './modules/common/submitButton';
 import { pulseClick } from "./modules/common/pulseClick";
@@ -11,7 +11,7 @@ import { scrollButton } from "./modules/common/scrollButton";
 
 document.addEventListener('DOMContentLoaded', function () {
   typicalTableWrap();
-  touchSwipe();
+  touchSwipeMenu();
   scrollButton();
   scrollAnimate(0.4);
   phoneMask();

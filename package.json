@@ -21,10 +21,10 @@
   "author": "Vitaly T.",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.14.5",
+    "@babel/core": "^7.14.6",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
-    "@babel/runtime": "^7.14.5",
+    "@babel/runtime": "^7.14.6",
     "@emitty/core": "^2.0.1",
     "@emitty/language-pug": "^2.0.1",
     "babel-loader": "^8.2.2",

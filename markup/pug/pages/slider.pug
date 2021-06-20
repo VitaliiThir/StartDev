@@ -1,0 +1,18 @@
+extends ../layout/default
+block variables
+  -
+    var titles = [
+    {
+    name: 'Slider',
+    path: ''
+    }
+    ];
+  - var breadCrumbs = false;
+block mixins
+  include ../mixins/index
+block content
+  main.slider-page
+    .container
+      .jq-test Click
+block append scripts
+  script(src="./js/common.min.js")

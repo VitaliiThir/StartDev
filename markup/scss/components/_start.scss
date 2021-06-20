@@ -48,45 +48,4 @@
   img {
     @include absoluteCenter();
   }
-  #swipe {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 300px;
-    max-width: 400px;
-    background-color: $gray-400;
-    user-select: none;
-    box-shadow: 0 0 .6rem 0 rgba($black, .4);
-    transform: translateX(-200%);
-    transition: transform 600ms;
-    nav {
-      ul {
-        @include list-reset(true);
-        li {}
-      }
-    }
-  }
-}
-
-.overlay {
-  position: fixed;
-  display: block;
-  content: '';
-  left: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  width: 300vw;
-  pointer-events: none;
-  background-color: rgba($white, .8);
-  backdrop-filter: blur(3px);
-  transition: opacity 600ms;
-  &.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
 }

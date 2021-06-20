@@ -17,6 +17,7 @@
     width: 2rem;
     height: 2rem;
     pointer-events: all;
+    cursor: pointer;
     background-color: $primary;
     border: 1px solid $gray-600;
     @include background('../img/svg/scroll-up.svg', $size:35%);

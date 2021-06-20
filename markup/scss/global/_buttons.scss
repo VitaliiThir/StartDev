@@ -76,19 +76,7 @@ $btn-padding: .75rem 2rem;
 }
 
 .dev-btn-submit {
-  position: relative;
-  &::after {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    @include background('../img/loader.gif', $size:20px);
-    pointer-events: none;
-    background-color: rgba($black, .75);
-  }
+  overflow: hidden;
   input {
     background-color: rgba($white, 0);
     font-size: inherit;
@@ -97,13 +85,6 @@ $btn-padding: .75rem 2rem;
     height: 100%;
     line-height: inherit;
     border: none;
-  }
-  &.loader {
-    cursor: default;
-    pointer-events: none;
-    &::after {
-      display: block;
-    }
   }
 }
 

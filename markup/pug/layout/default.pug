@@ -5,7 +5,7 @@ block mixins
 
 html(lang="ru")
 	include ../components/head
-	body#body
+	body
 		//Header
 		include ../components/header
 		//Header End
@@ -17,7 +17,6 @@ html(lang="ru")
 		//Footer
 		include ../components/footer
 		//Footer END
-		.overlay
 		block scripts
 			script(src="./js/libs/libs.min.js")
 

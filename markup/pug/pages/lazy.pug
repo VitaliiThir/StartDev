@@ -4,7 +4,7 @@ block variables
     var titles = [
     {
     name: 'Lazy',
-    path: ''
+    path: 'lazy.html'
     }
     ];
   - var breadCrumbs = false;
@@ -49,26 +49,16 @@ block content
               td значение
         .swipe-btn
           +button('button', 'primary', 'Swipe Menu')
-        #swipe
-          nav
-            ul
-              each item in [1,2,3,4,5,6,7,8]
-                li
-                  a(href="javascript:void(0)")= 'Element-' + item
+        include ../components/menu
       .row#anchor
         each src in ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.png', '6.png', '7.png', '8.png', '9.png']
           .col-4
             .image
               |
               |
-              img.lazyload(data-sizes="auto" data-src="./img/lazy/"+src data-expand="-20")
+              img.lazy(data-src="./img/lazy/" + src)
               |
               |
-    .scroll-button
-      |
-      |
-      a.scroll-button__item.ripple(href="#body")
-      |
-      |
+  include ../components/scroll-button
 block append scripts
   script(src="./js/common.min.js")

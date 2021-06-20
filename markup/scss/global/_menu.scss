@@ -1,0 +1,50 @@
+.nav {
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: $gray-400;
+    user-select: none;
+    box-shadow: 0 0 .6rem 0 rgba($black, .4);
+    transform: translateX(-200%);
+    transition: transform 600ms;
+    padding: 1rem;
+    nav {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 150px;
+      max-height: 100%;
+      overflow-y: auto;
+      ul {
+        @include list-reset(true);
+        li {}
+      }
+    }
+    &.active {
+      transform: translateX(0);
+    }
+    .mob-close {
+      position: absolute;
+      right: .5rem;
+      top: .5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      svg {
+        @include absoluteCenter(80%, 80%)
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: none;
+    .mob-close {
+      display: none;
+    }
+  }
+}

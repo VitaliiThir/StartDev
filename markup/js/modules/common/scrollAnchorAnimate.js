@@ -1,5 +1,5 @@
 // Плавный скролл при клике по #anchor (native)
-export function scrollAnimate(speed = 1) {
+export function scrollAnchorAnimate(speed = 1) {
   let linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
       V = speed;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
   for (let i = 0; i < linkNav.length; i++) {

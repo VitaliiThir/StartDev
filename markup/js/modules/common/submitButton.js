@@ -18,10 +18,11 @@ export function loader(elem, options) {
     bottom: 0;
     pointer-events: none;
     cursor-pointer: default;
-    background-image: url(${$v.$loader});
+    background-image: url(${ $v.$loader });
     background-position: center center;
     background-repeat: no-repeat;
-    `
+    `,
+    relative: 'relative'
   };
 
   options = { ...defaultOptions, ...options };
@@ -62,7 +63,7 @@ export function loader(elem, options) {
 
   let loaderStart = function () {
     if (positionStatus()) {
-      options.elem.style.position = 'relative';
+      options.elem.style.position = options.relative;
       options.elem.style.pointerEvents = 'none';
       loaderAppend()
     } else {
@@ -83,7 +84,7 @@ export function loader(elem, options) {
   let positionStatus = function () {
     let elemPosition = window.getComputedStyle(options.elem, null).position;
 
-    return elemPosition !== "relative" || elemPosition !== "absolute";
+    return elemPosition !== options.relative || elemPosition !== "absolute";
   };
 
   let loaderAppend = function () {
@@ -91,6 +92,6 @@ export function loader(elem, options) {
   };
 
   if (options.elem) {
-    return init()
+    init()
   }
 }

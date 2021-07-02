@@ -210,6 +210,11 @@
   }
 }
 
+@mixin overlayBackground() {
+  background-color: $overlay-color;
+  backdrop-filter: $overlay-blur;
+}
+
 /*Media query for browsers*/
 @mixin media-IE() {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

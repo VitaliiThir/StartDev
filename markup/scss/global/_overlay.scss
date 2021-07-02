@@ -8,11 +8,13 @@
   opacity: 0;
   width: 100vw;
   pointer-events: none;
-  background-color: $overlay-color;
-  backdrop-filter: $overlay-blur;
+  @include overlayBackground();
   transition: opacity 600ms;
   &.visible {
     opacity: 1;
     pointer-events: auto;
+  }
+  @include media-breakpoint-up(xl) {
+    display: none;
   }
 }

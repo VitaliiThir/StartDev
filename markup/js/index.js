@@ -16,7 +16,7 @@ $(function () {
 
   typicalTableWrap();
 
-  menu('.nav', {bar: '.swipe-btn button'});
+  menu('.nav', {bar: '.swipe-btn'});
   scrollButton('.scroll-button');
   scrollAnchorAnimate(0.4);
   phoneMask();

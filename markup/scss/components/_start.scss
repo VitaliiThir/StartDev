@@ -16,36 +16,24 @@
   border-top: 1px solid #666;
 }
 
-.main-page {
-  @include background('../img/temp-background.jpg');
-  &, .container, .example, .typical {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  .container {
-    .example {
-      background-color: $light;
-      padding: 1rem;
-    }
-  }
-  .example {
-    .content {
-      @include absoluteCenter();
-      @include rfs(40);
-      font-weight: $font-weight-bold;
-    }
-  }
-}
-
-.lazy-page {
-  .height-block {
-    height: 1500px;
+.example {
+  background-color: $light;
+  padding: 1rem;
+  .content {
+    @include absoluteCenter();
+    @include rfs(40);
+    font-weight: $font-weight-bold;
   }
   .image {
-    @include responsive-ratio(1, .5225, true)
+    @include responsive-ratio(1, .5225, true);
+    img {
+      @include absoluteCenter();
+    }
   }
-  img {
-    @include absoluteCenter();
+  .match-height {
+    padding: .5rem;
+  }
+  .forms {
+    max-width: 500px;
   }
 }

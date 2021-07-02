@@ -1,11 +1,11 @@
-mixin button(type, color, text, link, title, modal, input)
+mixin button(type, color, text, link, title, _modal, input, _class)
   if type === 'button'
     |
     |
     button(
-      class="dev-btn dev-btn-" + color + " ripple"
+      class=("dev-btn dev-btn-" + color + " ripple " + _class)
       title=(title ? title : false)
-      data-modal-open=(modal ? modal : false)
+      data-modal-open=(_modal ? _modal : false)
     )= text
     |
     |
@@ -16,7 +16,7 @@ mixin button(type, color, text, link, title, modal, input)
       href=(link ? link : 'javascript:void(0)')
       class="dev-btn dev-btn-" + color + " ripple"
       title=(title ? title : false)
-      data-modal-open=(modal ? modal : false)
+      data-modal-open=(_modal ? _modal : false)
     )= text
     |
     |

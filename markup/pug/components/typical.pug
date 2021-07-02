@@ -1,13 +1,9 @@
 include ../mixins/modal
 include ../mixins/button
+include ../mixins/input
 .example
-  nav
-    ul
-      li
-        a(href="lazy.html") Lazy
-      li
-        a(href="slider.html") Slider
   .typical
+    a.d-inline-block.mb-3(href="#anchor") Плавная прокрутка
     .row
       .col-xl-4
         h1 Заголовок 1-ого уровня
@@ -72,9 +68,26 @@ include ../mixins/button
         +button('button', 'warning', 'Warning')
         +button('button', 'danger', 'Danger')
         +button('submit', 'primary', 'Submit', false, false, false, true)
-      .col-12.text-center
+        +button('button', 'secondary', 'Swipe Menu',false, false, false, true, 'swipe-btn')
         +button('a', 'primary', 'Popup', 'javascript:void(0)', false, 'example')
+        include ../components/menu
       .col-12
         include ../components/pagination
+  .row
+    each text in ['Сожмите высоту этого элемента другими элементами, которые имеют то же имя', 'Сожмите высоту этого элемента', 'Сожмите высоту этого элемента другими элементами, которые']
+      .col-4
+        .match-height(data-match-height="test" data-match-height-enable="(min-width: 576px)" style="background-color:#ededed")= text
+  .forms.mt-5.mb-5
+    +input('text', 'user_phone', false, false, false, {state: true, name: 'Телефон:', required: true}, 'phone-mask', true)
+  .row#anchor
+    each src in ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.png', '6.png', '7.png', '8.png', '9.png']
+      .col-4
+        .image
+          |
+          |
+          img.lazy(data-src="./img/lazy/" + src)
+          |
+          |
+  include ../components/scroll-button
   +modal('example')
     .content Example

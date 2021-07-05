@@ -1,8 +1,7 @@
 import 'jquery-lazy/jquery.lazy.min';
 import { variables as $v } from "./vars";
 import { menu } from "./modules/common/swipeMenu";
-import { phoneMask } from "./modules/common/phoneMask";
-import { loader } from './modules/common/submitButton';
+import { loader } from './modules/common/loader';
 import { pulseClick } from "./modules/common/pulseClick";
 import { modal } from "./modules/common/modal";
 import { typicalTableWrap } from "./modules/common/typicalTableWrap";
@@ -10,11 +9,11 @@ import { scrollAnchorAnimate } from "./modules/common/scrollAnchorAnimate";
 import { scrollButton } from "./modules/common/scrollButton";
 import { getBySelector, getBySelectors, getById } from "./modules/common/getElement";
 import { formValidationExample } from "./modules/validation/example";
-import { ntf } from "./modules/common/ntf";
 
 $(function () {
   let popup = getBySelectors('.modal'),
-      lazy = $('.lazy');
+      lazy = $('.lazy'),
+      input_mask_class = '.phone-mask';
 
   typicalTableWrap();
 
@@ -22,8 +21,10 @@ $(function () {
   scrollButton('.scroll-button');
   scrollAnchorAnimate(0.4);
   formValidationExample(true);
-  phoneMask();
-  ntf();
+
+  if (input_mask_class.length) {
+    $(".phone-mask").inputmask("+7 (999) 999-99-99");
+  }
   pulseClick();
 
   lazy.lazy();
@@ -32,7 +33,7 @@ $(function () {
     modal();
   }
 
-  loader('.dev-btn-submit', { demo: true });
+  loader('.typical .dev-btn-submit', { demo: true });
 
 });
 

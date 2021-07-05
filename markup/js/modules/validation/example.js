@@ -1,9 +1,18 @@
 import { variables as $v } from "../../vars";
+import { loader } from "../common/loader";
+import {ntf} from "../common/ntf";
 
 export function formValidationExample($example) {
-  let requiredField = $v.$lang === 'ru' ? 'Поле обязательно для ввода' : 'The field is required',
-      form = $('#form-example'),
-      example = function() {},
+  let form = $('#form-example'),
+      example = function() {
+        loader('#form-example .dev-btn-submit', {status: true});
+
+        setTimeout(() => {
+          loader('#form-example .dev-btn-submit', {status: false});
+          ntf('Сообщение отправлено!', 'Оператор свяжется с вами в ближайшее время.');
+          form.get(0).reset()
+        }, 800)
+      },
       ajaxFormSubmit = function (form, event) {
         let string = $(form).serialize();
         $.ajax({
@@ -37,26 +46,23 @@ export function formValidationExample($example) {
       }
     },
     messages: {
-      user_name: {
-        required: requiredField
-      },
       user_phone: {
-        required: requiredField
+        required: $v.$requiredField
       },
       user_message: {
-        required: requiredField
+        required: $v.$requiredField
       },
       politic: {
-        required: requiredField
+        required: $v.$requiredCheck
       },
       'check_group[]': {
-        required: requiredField
+        required: $v.$requiredChecks
       },
       'check_group_hor[]': {
-        required: requiredField
+        required: $v.$requiredChecks
       },
       'radio_group[]': {
-        required: requiredField
+        required: $v.$requiredChecks
       }
     },
     focusCleanup: false,

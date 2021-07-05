@@ -3,15 +3,23 @@ block variables
   -
     var titles = [
     {
-    name: 'Start Dev',
+    name: 'Example',
     path: ''
     }
     ];
   - var breadCrumbs = false;
 block mixins
   include ../mixins/index
+block append styles
+  link(rel="stylesheet" href="./css/example.css")
 block content
   main.main-page
     .container
+      |
+      |
+      a(href="index.html") На главную
+      |
+      |
+      include ../components/common/typical
 block append scripts
   script(src="./js/common.min.js")

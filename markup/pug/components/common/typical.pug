@@ -1,10 +1,9 @@
-include ../mixins/modal
-include ../mixins/button
-include ../mixins/form/input
-include ../mixins/form/check
+include ../../mixins/modal
+include ../../mixins/button
+include ../../mixins/form/input
+include ../../mixins/form/check
 .example
   .typical
-    a.d-inline-block.mb-3(href="#anchor") Плавная прокрутка
     .row
       .col-xl-4
         h1 Заголовок 1-ого уровня
@@ -71,11 +70,13 @@ include ../mixins/form/check
         +button('submit', 'primary', 'Submit', false, false, false, true)
         +button('button', 'secondary', 'Swipe Menu',false, false, false, true, 'swipe-btn')
         +button('a', 'primary', 'Popup', 'javascript:void(0)', false, 'example')
-        include ../components/menu
+        include menu
       .col-12
-        include ../components/pagination
+        include pagination
     hr
     br
+  .title.title-third
+    h4 Одинаковая высота элементов
   .row
     each text in ['Сожмите высоту этого элемента другими элементами, которые имеют то же имя', 'Сожмите высоту этого элемента', 'Сожмите высоту этого элемента другими элементами, которые']
       .col-4
@@ -84,24 +85,18 @@ include ../mixins/form/check
   hr
   br
   .forms.mt-2.mb-5
+    .title.title-third
+      h4 Форма
     form#form-example
       +input('text', 'user_phone', false, false, 'Телефон', true, true, 'phone-mask')
-      +input('textarea', false, false, false, 'Комментарий', true, true, 'user_message')
+      +input('textarea', 'user_message', false, false, 'Комментарий', true, true, 'user_message')
       +check('checkbox', 'politic', 'Одиночный чекбокс', 'Я согласен на обработку персональных данных и с <a href="javascript:void(0)" style="text-decoration: none;">Политикой конфиденциальности</a>', false, false, 'politic', false)
-      +check('checkbox', 'check_group[]', 'Группа чекбоксов (вертикально)', false, ['Checkbox-1', 'Checkbox-2', 'Checkbox-3', 'Checkbox-4'], false, true, 'check_group', false)
+      +check('checkbox', 'check_group[]', 'Группа чекбоксов (вертикально)', false,
+        ['Checkbox-1', 'Checkbox-2', 'Checkbox-3', 'Checkbox-4'], false, true, 'check_group', false)
       +check('checkbox', 'check_group_hor[]', 'Группа чекбоксов (горизонтально)', false, ['Checkbox-1', 'Checkbox-2', 'Checkbox-3', 'Checkbox-4', 'Checkbox-5'], true, true, 'check_group_hor', false)
       +check('radio', 'radio_group[]', 'Группа чекбоксов (radio)', false, ['Radio-1', 'Radio-2', 'Radio-3', 'Radio-4'], false, true, 'radio_group', false)
       .sbmt-btn
         +button('submit', 'primary', 'Отправить', false, false, false, true)
-  .row#anchor
-    each src in ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.png', '6.png', '7.png', '8.png', '9.png']
-      .col-4
-        .image
-          |
-          |
-          img.lazy(data-src="./img/lazy/" + src)
-          |
-          |
-  include ../components/scroll-button
+  include scroll-button
   +modal('example')
     .content Example

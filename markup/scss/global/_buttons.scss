@@ -76,7 +76,9 @@ $btn-padding: .75rem 2rem;
 }
 
 .dev-btn-submit {
+  position: relative;
   overflow: hidden;
+  padding: 0;
   input {
     background-color: rgba($white, 0);
     font-size: inherit;
@@ -85,6 +87,7 @@ $btn-padding: .75rem 2rem;
     height: 100%;
     line-height: inherit;
     border: none;
+    @extend .dev-btn;
   }
 }
 

@@ -1,6 +1,6 @@
 $check_size: 20px;
 $radio_after: 6px;
-@include formError();
+@include formError($fz:rem(11px));
 .form-field,
 .form-check,
 .form-check-group {

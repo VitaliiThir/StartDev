@@ -1,4 +1,3 @@
-// Submit loader
 import { variables as $v } from "../../vars";
 
 export function loader(elem, options) {
@@ -72,7 +71,8 @@ export function loader(elem, options) {
   };
 
   let loaderEnd = function () {
-    loader.remove();
+    let loaderObj = document.querySelector('.loader');
+    loaderObj.remove();
 
     if (positionStatus()) {
       options.elem.style.removeProperty('position')

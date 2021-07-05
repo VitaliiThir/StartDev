@@ -10,10 +10,9 @@
     margin-bottom: 0;
     li {
       flex: 0 0 auto;
-      color: $gray-dark;
-      font-size: $fz-14;
+      color: $gray-500;
+      font-size: rem(14px);
       line-height: 1.2em;
-      letter-spacing: .35/14+em;
       a {
         color: $primary;
         font-weight: inherit;

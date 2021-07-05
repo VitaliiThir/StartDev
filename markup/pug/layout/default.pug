@@ -4,18 +4,18 @@ block variables
 block mixins
 
 html(lang="ru")
-	include ../components/head
+	include ../components/common/head
 	body
 		//Header
-		include ../components/header
+		include ../components/common/header
 		//Header End
 		if breadCrumbs
 			// Bread crumbs
-			include ../components/breadcrumbs
+			include ../components/common/breadcrumbs
 			// Bread crumbs END
 		block content
 		//Footer
-		include ../components/footer
+		include ../components/common/footer
 		//Footer END
 		block scripts
 			script(src="./js/libs/libs.min.js")

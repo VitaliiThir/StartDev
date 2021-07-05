@@ -1,0 +1,30 @@
+mixin check(type, name, label, labelValue, group, horizontal, required, id, _class)
+  .form-check
+    if label
+      label.form-field__name= label
+      if required
+        span.star-required *
+        |:
+      else
+        |:
+    if group
+      .form-check-group(class=(horizontal ? 'horizontal' : ''))
+        each item, i in group
+          .form-check__item
+            |
+            |
+            input(type="" + type id="" + id + '-' + (i + 1) name="" + name)
+            |
+            |
+            label(for="" + id + '-' + (i + 1))!= item
+              if horizontal
+                if i !== group.length - 1
+                  |,
+    else
+      .form-check__item
+        |
+        |
+        input(type="" + type id="" + id name="" + name)
+        |
+        |
+        label(for="" + id)!= labelValue

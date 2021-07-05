@@ -1,9 +1,0 @@
-mixin input(type, name, id, value, placeholder, label, _class)
-  .form-dev-field
-    if label.state
-      label #{label.name}#{label.required ? "<span class='star-required'>*</span>" : ":"}
-    |
-    |
-    input(type="" + type class=(_class ? 'dev-input ' + _class : 'dev-input') name="" + name id=(id ? id : false) value=(value ? value : false) placeholder=(placeholder ? placeholder : false))
-    |
-    |

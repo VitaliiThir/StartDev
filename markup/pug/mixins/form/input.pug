@@ -1,0 +1,21 @@
+mixin input(type, name, id, value, label, required, placeholder, _class)
+  .form-field
+    if label
+      label.form-field__name= label
+        if required
+          span.star-required *
+          |:
+        else
+          |:
+    if type !== 'textarea'
+      |
+      |
+      input(type="" + type id=(id ? id : false) class=(_class ? _class : '') name="" + name value=(value ? value : false) placeholder=(placeholder ? placeholder : false))
+      |
+      |
+    else
+      |
+      |
+      textarea(class=(_class ? _class : '') name="" + name placeholder=(placeholder ? placeholder : false))
+      |
+      |

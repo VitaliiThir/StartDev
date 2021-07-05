@@ -149,4 +149,14 @@ svg {
   opacity: 1;
 }
 
+.star-required {
+  color: #ff0000;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: $gray-300;
+}
+
 @import "../components/start";

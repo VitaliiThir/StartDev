@@ -1,4 +1,4 @@
-import 'jquery-lazy/jquery.lazy.min'
+import 'jquery-lazy/jquery.lazy.min';
 import { variables as $v } from "./vars";
 import { menu } from "./modules/common/swipeMenu";
 import { phoneMask } from "./modules/common/phoneMask";
@@ -9,6 +9,8 @@ import { typicalTableWrap } from "./modules/common/typicalTableWrap";
 import { scrollAnchorAnimate } from "./modules/common/scrollAnchorAnimate";
 import { scrollButton } from "./modules/common/scrollButton";
 import { getBySelector, getBySelectors, getById } from "./modules/common/getElement";
+import { formValidationExample } from "./modules/validation/example";
+import { ntf } from "./modules/common/ntf";
 
 $(function () {
   let popup = getBySelectors('.modal'),
@@ -16,10 +18,12 @@ $(function () {
 
   typicalTableWrap();
 
-  menu('.nav', {bar: '.swipe-btn'});
+  menu('.nav', { bar: '.swipe-btn' });
   scrollButton('.scroll-button');
   scrollAnchorAnimate(0.4);
+  formValidationExample(true);
   phoneMask();
+  ntf();
   pulseClick();
 
   lazy.lazy();

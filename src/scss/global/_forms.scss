@@ -26,8 +26,6 @@ $radio_after: 6px;
     background-color: rgba($white, 0);
     border: 1px solid $border-color;
     padding: .7rem 1rem;
-    &:hover {
-    }
   }
 }
 
@@ -44,6 +42,12 @@ $radio_after: 6px;
   }
   &:focus {
     border-color: darken($border-color, 15%);
+  }
+}
+
+.form-check__item label {
+  &:hover {
+    cursor: pointer;
   }
 }
 

@@ -1,0 +1,42 @@
+mixin button(type, theme, text, link, title, _modal, input, _class)
+  if type === 'button'
+    |
+    |
+    button(
+      class=("dev-btn dev-btn-" + theme + " ripple" + (_class ? ' ' + _class : ''))
+      title=(title ? title : false)
+      data-modal-open=(_modal ? _modal : false)
+    )= text
+    |
+    |
+  else if type === 'a'
+    |
+    |
+    a(
+      href=(link ? link : 'javascript:void(0)')
+      class="dev-btn dev-btn-" + theme + " ripple"
+      title=(title ? title : false)
+      data-modal-open=(_modal ? _modal : false)
+    )= text
+    |
+    |
+  else if type === 'submit'
+    if input
+      div(class="dev-btn dev-btn-" + theme + " dev-btn-submit ripple")
+        |
+        |
+        input(
+          type="submit"
+          value="" + text
+        )
+        |
+        |
+    else
+      |
+      |
+      button(
+        type="submit"
+        class="dev-btn dev-btn-" + theme + " dev-btn-submit ripple"
+      )= text
+      |
+      |

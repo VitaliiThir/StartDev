@@ -6,8 +6,8 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   entry: {
-    common: './markup/js/index.js',
-    //main: './markup/main-page.js'
+    common: './src/js/index.js',
+    example: './src/js/pages/example.js'
   },
   output: {
     filename: '[name].min.js',
@@ -24,7 +24,8 @@ module.exports = {
             },
           },
           'babel-loader'
-        ]
+        ],
+        exclude: '/node_modules/'
       },
     ]
   },

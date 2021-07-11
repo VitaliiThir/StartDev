@@ -8,8 +8,9 @@
     "url": "https://github.com/VitaliiThir.git"
   },
   "scripts": {
-    "start": "gulp",
-    "build": "build"
+    "dev": "gulp",
+    "build": "gulp build",
+    "favicon": "gulp favicon"
   },
   "keywords": [
     "ES6 Modules",
@@ -48,6 +49,7 @@
     "gulp-imagemin": "^5.0.3",
     "gulp-pug": "^4.0.1",
     "gulp-pug-inheritance": "^0.2.1",
+    "gulp-real-favicon": "^0.3.2",
     "gulp-replace": "^1.1.3",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.1.1",
@@ -71,8 +73,7 @@
   "dependencies": {
     "@tannerhodges/match-height": "^1.1.1",
     "bootstrap": "^4.6.0",
-    "imask": "^6.0.7",
-    "inputmask": "^5.0.6-beta.57",
+    "inputmask": "^5.0.6",
     "jquery": "^3.6.0",
     "jquery-lazy": "^1.7.11",
     "jquery-touchswipe": "^1.6.19",

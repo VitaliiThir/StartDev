@@ -1,10 +1,11 @@
-# Gulp Start
+# Start Dev
 ### In this template you can use:
 - Javascript ES6 Modules - processing using Webpack 4;
 - Sass - Bootstrap 4 grid-generator, a set of useful mixins out of the box;
 - SVG-sprites;
 - Reusable HTML-templates - based on [gulp-file-include](https://www.npmjs.com/package/gulp-file-include);
 - Pug - HTML preprocessor.
+- Favicon - Automatic generator Favicon. Site - [Favicon Generator](https://realfavicongenerator.net/)
 ### Available immediately:
 - Trimmed version(**~40 kb** size) of Bootsrap 4 - grid, flex, spacing, display and text utilites, functions, mixins, variables;
 - [jQuery](https://github.com/jquery/jquery)- using with WebpackProvidePlugin and partial include in main javascript file - just what we use;
@@ -13,7 +14,7 @@
 	### Installation:
 	> Note: latest versions of **[node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/)** must be installed!
 	```sh
-	$ git clone https://github.com/VitaliiThir/GulpStart.git
+	$ git clone https://github.com/VitaliiThir/StartDev.git
 	```
     ```sh
     $ cd FOLDER_NAME
@@ -24,11 +25,15 @@
 	### Usage
 	For **development** mode:
 	```sh
-	$ npm start
+	$ npm run dev
 	```
 	For **production** mode:
 	```sh
-	$ npm start build
+	$ npm run build
 	```
+	For **favicon** mode:
+    ```sh
+    $ npm run favicon
+    ```
 	### Notes
 	>SVG-sprites work and display content only on the server - local or any other. The reason this doesn't work is due to a security concern.

@@ -1,0 +1,28 @@
+doctype html
+
+include ../mixins/index
+include ../templates/head
+block variables
+block mixins
+
+html(lang="ru")
+	+head('WebDevelopment', '#333333')
+	body
+		//Header
+		include ../components/common/header
+		//Header End
+		if settings.breadCrumbs
+			// Bread crumbs
+			include ../components/common/breadcrumbs
+			// Bread crumbs END
+		main(class="" + settings.pageClass)
+			if settings.container
+				.container
+					block content
+			else
+				block content
+		//Footer
+		include ../components/common/footer
+		//Footer END
+		block scripts
+			+scripts(settings.scripts)

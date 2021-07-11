@@ -1,0 +1,12 @@
+mixin scripts(scripts)
+  script(src="./js/libs/libs.min.js")
+  if scripts.plugins
+    each script in scripts.plugins
+      script(src="./js/libs/" + script + ".min.js")
+  script(src="./js/common.min.js")
+  if scripts.components
+    each script in scripts.components
+      script(src="./js/components/" + script + ".min.js")
+  if scripts.pages
+    each script in scripts.pages
+      script(src="./js/" + script + ".min.js")

@@ -1,0 +1,20 @@
+extends ../layout/default
+block variables
+  -
+    var settings = {
+    titles: [{name: '', path: ''}], // Название страницы и путь до неё
+    styles: {
+    components: [], // Дополнительные файлы стилей для отдельных компонентов,
+    pages: [] // Дополнительные файлы стилей для разных страниц
+    },
+    scripts: {
+    plugins: [], // Дополнительные файлы плагинов (Java Script) для разных страниц
+    components: [], // Дополнительные файлы компонентов (Java Script) для разных страниц,
+    pages: [], // Дополнительные файлы скриптов (Java Script) для разных страниц
+    },
+    pageClass: '', // Css класс для тега 'main'
+    breadCrumbs: false,
+    container: true
+    }
+block mixins
+block content

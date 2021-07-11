@@ -9,5 +9,7 @@ module.exports = [
 	'./gulp/tasks/fonts',
 	'./gulp/tasks/images',
 	'./gulp/tasks/svg',
-	'./gulp/tasks/libs'
+	'./gulp/tasks/libs',
+	'./gulp/tasks/components',
+	'./gulp/tasks/favicon'
 ];

@@ -1,0 +1,279 @@
+@import "variables";
+@import "functions";
+@import "rem";
+@import "rfs";
+
+@mixin list-reset($margin-bottom: false) {
+  padding-left: 0;
+  list-style: none;
+  @if $margin-bottom {
+    margin-bottom: 0;
+  }
+}
+
+@mixin mx-auto() {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin background($path: false, $rep: no-repeat, $pos: center center, $size: cover) {
+  @if $path {
+    background-image: url('' + $path);
+  }
+  background-repeat: $rep;
+  background-position: $pos;
+  background-size: $size;
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '', $size: true) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @if $size {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  position: relative;
+  overflow: hidden;
+  $padding: unquote(( $y / $x ) * 100 + '%');
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+@mixin transform-center($pseudo: false, $db: false) {
+  position: absolute;
+  @if $pseudo {
+    content: "";
+  }
+  @if $db {
+    display: block;
+  }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin stepsTransition($ql: 10, $t: 1s) {
+  @for $i from 1 through $ql {
+    &:nth-child(#{$i}) {
+      transition-delay: $i * ($t / $ql);
+    }
+  }
+}
+
+@mixin formError($colorError: red, $borderError: inherit, $borderValid: inherit, $fz: 14px) {
+  label.error {
+    position: absolute;
+    display: block;
+    font-size: $fz;
+    color: $colorError;
+    line-height: 1.45;
+    margin-bottom: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    animation: labelError .2s ease-in-out forwards;
+    @keyframes labelError {
+      from {
+        opacity: 0;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(100%);
+      }
+    }
+  }
+  input.error {
+    border-color: $borderError;
+  }
+  input.valid {
+    border-color: $borderValid;
+  }
+  textarea.error {
+    border-color: $borderError;
+  }
+  textarea.valid {
+    border-color: $borderValid;
+  }
+}
+
+@mixin absolute($width: false) {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  @if $width {
+    width: 100%;
+  }
+}
+
+@mixin absoluteCenter($max_size: 100%, $max_height: false) {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: $max_size;
+  @if $max_height {
+    max-height: $max_height;
+  } @else {
+    max-height: $max_size;
+  }
+}
+
+@mixin flare($loop: .2, $center: .4, $speed: 120ms, $pos: false) {
+  @if $pos {
+    position: relative;
+  }
+  &::after {
+    @include absolute;
+    content: "";
+    pointer-events: none;
+    background-image: linear-gradient(45deg, transparent, transparent, transparent);
+  }
+  &:hover {
+    &::after {
+      animation: blik $speed linear;
+    }
+  }
+
+  @keyframes blik {
+    0% {
+      background-image: linear-gradient(45deg, rgba(#fff, $loop), transparent, transparent);
+    }
+    50% {
+      background-image: linear-gradient(45deg, transparent, rgba(#fff, $center), transparent);
+    }
+    100% {
+      background-image: linear-gradient(45deg, transparent, transparent, rgba(#fff, $loop));
+    }
+  }
+}
+
+@mixin objectFit() {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@mixin textInherit($fz: inherit, $fw: inherit, $fs: inherit, $color: inherit, $lh: inherit,$wb: normal) {
+  font: {
+    size: $fz;
+    weight: $fw;
+    style: $fs;
+  }
+  color: $color;
+  line-height: $lh;
+  word-break: $wb;
+}
+
+@mixin linkBorderHover($padding: .3em, $bgc: $primary, $bgcHover: $secondary, $height: 1px, $pos: relative) {
+  position: $pos;
+  padding-bottom: $padding;
+  &::after, &::before {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 100%;
+    height: $height;
+  }
+  &::after {
+    z-index: 0;
+    background-color: $bgc;
+    left: 0;
+    right: 0;
+  }
+  &::before {
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    width: 0;
+    background-color: $bgcHover;
+    transition: width $trs-2;
+  }
+  &:hover {
+    &::before {
+      width: 101%;
+    }
+  }
+}
+
+@mixin overlayBackground() {
+  background-color: $overlay-color;
+  backdrop-filter: $overlay-blur;
+}
+
+/*Media query for browsers*/
+@mixin media-IE() {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin media-edge() {
+  @supports (-ms-ime-align:auto) {
+    .selector {
+      property: value;
+    }
+    @content;
+  }
+}
+
+@mixin scrollBar() {
+  html {
+    width: 100vw;
+    /*IE 11*/
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    /*FireFox*/
+    scrollbar-width: thin;
+    scrollbar-color: $fireFoxThumbColor $fireFoxTrackColor;
+
+    /*WebKit*/
+    ::-webkit-scrollbar {
+      width: $chromeTrackWidth;
+      background: none;
+    }
+
+    ::-webkit-scrollbar-button {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: $chromeTrackColor;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: $chromeThumbColor;
+    }
+
+    ::-webkit-scrollbar-corner {
+      height: 8px;
+      width: 8px;
+      background-color: rgba(#fff, .2);
+    }
+
+  }
+}
+
+//============T H I S  P R O J E C T ==============

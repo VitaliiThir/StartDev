@@ -1,0 +1,23 @@
+.bread-crumbs
+  .scroll-wrapper
+    .scroll-wrapper__item
+      .bread-crumbs-list
+        ul
+          li
+            |
+            |
+            a(href="index.html") Главная
+            |
+            |
+          each title, i in settings.titles
+            if i !== settings.titles.length - 1
+              li
+                |
+                |
+                a(href="" + title.path)= title.name
+                |
+                |
+            else
+              li <span>#{title.name}</span>
+  .title.title-first.page-title
+    h1= settings.titles[settings.titles.length - 1].name

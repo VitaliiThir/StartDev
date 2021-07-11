@@ -1,0 +1,8 @@
+mixin styles(styles)
+  link(rel="stylesheet" href="./css/common.css")
+  if styles.components
+    each style in styles.components
+      link(rel="stylesheet" href="./css/" + style + ".css")
+  if styles.pages
+    each style in styles.pages
+      link(rel="stylesheet" href="./css/" + style + ".css")

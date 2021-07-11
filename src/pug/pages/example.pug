@@ -1,0 +1,21 @@
+extends ../layout/default
+block variables
+  -
+    var settings = {
+    titles: [{name: 'Examples', path: 'example.html'}],
+    styles: {
+    components: [],
+    pages: ['example']
+    },
+    scripts: {
+    plugins: ['jquery.inputmask','jquery.touchSwipe','jquery.validate','match-height','micromodal'],
+    components: [],
+    pages: ['example']
+    },
+    pageClass: 'example',
+    breadCrumbs: false,
+    container: true
+    }
+block mixins
+block content
+  include ../templates/typical

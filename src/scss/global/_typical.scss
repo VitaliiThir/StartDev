@@ -51,11 +51,11 @@
     margin-bottom: 1rem;
     max-width: 100%;
   }
-  a {
+  a:not(.no--typical) {
     color: $link-color;
-    border-bottom: 1px solid rgba($link-color, .2);
     transition: all $trs;
     text-decoration: none;
+    @include linkBorderHover();
     &:hover {
       color: $link-hover-color;
       border-color: rgba($link-hover-color, .2);

@@ -185,7 +185,7 @@
   word-break: $wb;
 }
 
-@mixin linkBorderHover($padding: .3em, $bgc: $primary, $bgcHover: $secondary, $height: 1px, $pos: relative) {
+@mixin linkBorderHover($padding: .05rem, $bgc: rgba($white,0), $bgcHover: $link-hover-color, $height: 1px, $pos: relative) {
   position: $pos;
   padding-bottom: $padding;
   &::after, &::before {
@@ -207,7 +207,7 @@
     transform: translateX(-50%);
     width: 0;
     background-color: $bgcHover;
-    transition: width $trs-2;
+    transition: width $trs;
   }
   &:hover {
     &::before {

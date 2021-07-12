@@ -1,53 +1,65 @@
 include ../mixins/modal
-include ../mixins/button
-include ../mixins/form/input
-include ../mixins/form/check
-
-|
-|
-a(href="index.html") На главную
-|
-|
-.typical
+include ../components/ui/button
+include ../components/ui/form/input
+include ../components/ui/form/check
+include ../components/ui/pagination
+.typical.pt-4
+  |
+  |
+  a.mb-2.d-inline-flex.no--typical(href="index.html" style="line-height:1") ← Вернуться на главную
+  |
+  |
   .row
-    .col-xl-4
-      h1 Заголовок 1-ого уровня
-      h2 Заголовок 2-ого уровня
-      h3 Заголовок 3-его уровня
-      h4 Заголовок 4-ого уровня
-      h5 Заголовок 5-ого уровня
-      h6 Заголовок 6-ого уровня
-    .col-xl-4
+    .col-12.mb-4
+      .title.title-fourth
+        h4 Заголовки
+      h1 h1 Заголовок 1-ого уровня
+      h2 h2 Заголовок 2-ого уровня
+      h3 h3 Заголовок 3-его уровня
+      h4 h4 Заголовок 4-ого уровня
+      h5 h5 Заголовок 5-ого уровня
+      h6 h6 Заголовок 6-ого уровня
+      br
+      hr
+    .col-12.mb-4
+      .title.title-fourth
+        h4 Маркированный список
       ul
-        li Маркированный список
-        li Маркированный список
+        li Элемент списка
+        li Элемент списка
           ul
-            li Маркированный список
-            li Маркированный список
-            li Маркированный список
-        li Маркированный список
-    .col-xl-4
+            li Элемент списка
+            li Элемент списка
+            li Элемент списка
+        li Элемент списка
+      hr
+    .col-12.mb-4
+      .title.title-fourth
+        h4 Нумерованный список
       ol
-        li Нумерованный список
-        li Нумерованный список
+        li Элемент списка
+        li Элемент списка
           ol
-            li Нумерованный список
-            li Нумерованный список
+            li Элемент списка
+            li Элемент списка
               ol
-                li Нумерованный список
-                li Нумерованный список
-                li Нумерованный список
-            li Нумерованный список
-        li Нумерованный список
-    .col-xl-4
+                li Элемент списка
+                li Элемент списка
+                li Элемент списка
+            li Элемент списка
+        li Элемент списка
+      hr
+    .col-12.mb-4
       p <strong>Абзац</strong> рыбатекст поможет <a href="javascript:void(0)">дизайнеру</a>, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбына русском языке
       blockquote <strong>Цитата</strong> рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке
-    .col-xl-8
+      br
+      hr
+    .col-12
+      .title.title-fourth.mb-3
+        h4 Таблица
       |
       |
       table
-        tr
-          td(colspan="4" class="text-center") <b>Таблица</b>
         tr.text-center
           td <b>Название</b>
           td <b>Название</b>
@@ -65,32 +77,44 @@ a(href="index.html") На главную
           td Значение
       |
       |
-    .col-12.mb-5.mt-4.d-flex.justify-content-around.flex-wrap
-      +button('button', 'primary', 'Primary')
-      +button('button', 'secondary', 'Secondary')
-      +button('button', 'success', 'Success')
-      +button('button', 'info', 'Info')
-      +button('button', 'warning', 'Warning')
-      +button('button', 'danger', 'Danger')
-      +button('submit', 'primary', 'Submit', false, false, false, true)
-      +button('button', 'secondary', 'Swipe Menu',false, false, false, true, 'swipe-btn')
-      +button('a', 'primary', 'Popup', 'javascript:void(0)', false, 'example')
+      br
+      hr
+    .col-12.mb-5.mt-4
+      .title.title-fourth.mb-3
+        h4 Кнопки
+      .d-flex.justify-content-between.flex-wrap
+        +button('button', 'primary', 'Primary')
+        +button('button', 'secondary', 'Secondary')
+        +button('button', 'success', 'Success')
+        +button('button', 'info', 'Info')
+        +button('button', 'warning', 'Warning')
+        +button('button', 'danger', 'Danger')
+        +button('submit', 'primary', 'Submit', false, false, false, true)
+        +button('button', 'secondary', 'Swipe Menu',false, false, false, true, 'swipe-btn')
+        +button('a', 'primary', 'Popup', 'javascript:void(0)', false, 'example')
       include ../components/common/menu
+      br
+      hr
     .col-12
-      include ../components/common/pagination
+      .title.title-fourth
+        h4 Пагинация (Тип 1)
+      +pagination()
+      .title.title-fourth
+        h4 Пагинация (Тип 2)
+      +pagination(true)
   hr
   br
-.title.title-third
+.title.title-fourth.mb-3
   h4 Одинаковая высота элементов
 .row
-  each text in ['Одинаковая высота элементов', 'Одинаковая высота элементов, одинаковая высота элементов', 'Одинаковая высота элементов']
+  each text in ['Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев.', 'Сайт рыбатекст поможет дизайнеру.', 'Сайт рыбатекст поможет дизайнеру, верстальщику.']
     .col-4
       .match-height(data-match-height="test" data-match-height-enable="(min-width: 576px)" style="background-color:#ededed")= text
 br
 hr
 br
 .forms.mt-2.mb-5
-  .title.title-third
+  .title.title-fourth
     h4 Форма
   form#form-example
     +input('text', 'user_phone', false, false, 'Телефон', true, true, 'phone-mask')
@@ -102,6 +126,6 @@ br
     +check('radio', 'radio_group[]', 'Группа чекбоксов (radio)', false, ['Radio-1', 'Radio-2', 'Radio-3', 'Radio-4'], false, true, 'radio_group', false)
     .sbmt-btn
       +button('submit', 'primary', 'Отправить', false, false, false, true)
-include ../components/common/scroll-button
+include ../components/ui/scroll-button
 +modal('example')
   .content Example

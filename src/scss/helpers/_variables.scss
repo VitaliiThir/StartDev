@@ -16,9 +16,23 @@ $border-radius:               5px;
 $border-radius-btn:           $border-radius;
 $box-shadow:                  -2px 2px .3rem 0 rgba($black, .2);
 
+// Breakpoints
+$xs: 0;
+$m: 413px;
+$sm: 576px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1170px;
+$xxl: 1400px;
+
 // Transitions
-$trs:                         250ms;
-$trs-2:                       400ms;
+$trs:                         250ms !default;
+$trs-300:                     300ms;
+$trs-400:                     400ms;
+$trs-500:                     500ms;
+$trs-600:                     600ms;
+$trs-700:                     700ms;
+$trs-800:                     800ms;
 
 $body-bg:                     $white;
 $body-color:                  $black;
@@ -92,25 +106,25 @@ $chromeThumbColor:            $primary;
 $chromeTrackWidth:            .5rem;
 
 $grid-breakpoints: (
-  xs: 0,
-  m:  413px,
-  sm: 576px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1170px,
-  xxl: 1400px
+  xs:  $xs,
+  m:   $m,
+  sm:  $sm,
+  md:  $md,
+  lg:  $lg,
+  xl:  $xl,
+  xxl: $xxl
 );
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 $container-max-widths: (
-  m:  408px,
-  sm: 540px,
-  md: 740px,
-  lg: 984px,
-  xl: 1140px,
-  xxl: 1370px
+  m:   $m - 5,
+  sm:  $sm - 30,
+  md:  $md - 28,
+  lg:  $lg - 30,
+  xl:  $xl - 30,
+  xxl: $xxl - 30
 );
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -121,7 +135,7 @@ $grid-gutter-width:           30px;
 /*Responsive font-size settings*/
 $rfs-minimum-font-size              : 16px;
 $rfs-font-size-unit                 : rem;
-$rfs-breakpoint                     : 1370px;
+$rfs-breakpoint                     : $xxl;
 $rfs-breakpoint-unit                : px;
 $rfs-two-dimensional                : false;
 $rfs-factor                         : 10;

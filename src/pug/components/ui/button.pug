@@ -3,7 +3,7 @@ mixin button(type, theme, text, link, title, _modal, input, _class)
     |
     |
     button(
-      class=("dev-btn dev-btn-" + theme + " ripple" + (_class ? ' ' + _class : ''))
+      class=("no--typical dev-btn dev-btn-" + theme + " ripple" + (_class ? ' ' + _class : ''))
       title=(title ? title : false)
       data-modal-open=(_modal ? _modal : false)
     )= text
@@ -14,7 +14,7 @@ mixin button(type, theme, text, link, title, _modal, input, _class)
     |
     a(
       href=(link ? link : 'javascript:void(0)')
-      class="dev-btn dev-btn-" + theme + " ripple"
+      class="no--typical dev-btn dev-btn-" + theme + " ripple"
       title=(title ? title : false)
       data-modal-open=(_modal ? _modal : false)
     )= text
@@ -22,7 +22,7 @@ mixin button(type, theme, text, link, title, _modal, input, _class)
     |
   else if type === 'submit'
     if input
-      div(class="dev-btn dev-btn-" + theme + " dev-btn-submit ripple")
+      div(class="no--typical dev-btn dev-btn-" + theme + " dev-btn-submit ripple")
         |
         |
         input(
@@ -36,7 +36,7 @@ mixin button(type, theme, text, link, title, _modal, input, _class)
       |
       button(
         type="submit"
-        class="dev-btn dev-btn-" + theme + " dev-btn-submit ripple"
+        class="no--typical dev-btn dev-btn-" + theme + " dev-btn-submit ripple"
       )= text
       |
       |

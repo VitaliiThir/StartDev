@@ -37,7 +37,7 @@ $radio_after: 6px;
   }
   &:hover {
     &, &::before {
-      border-color: darken($border-color, 15%);
+      border-color: darken($border-color, 15%) !important;
     }
   }
   &:focus {

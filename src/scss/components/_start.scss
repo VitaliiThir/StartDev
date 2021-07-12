@@ -21,10 +21,16 @@
           width: 100%;
           max-width: 50px;
           margin-right: .5rem;
+          transition: transform $trs-400;
         }
         a {
           &, &:hover, &:visited {
             color: inherit !important;
+          }
+        }
+        &:hover {
+          img {
+            transform: rotate(45deg);
           }
         }
       }
@@ -32,6 +38,7 @@
         margin-left: auto;
         a {
           color: darkgoldenrod;
+          line-height: 1;
           @include linkBorderHover($bgc: rgba($white, 0), $bgcHover: darkgoldenrod);
         }
       }

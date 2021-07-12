@@ -1,0 +1,34 @@
+mixin pagination($word)
+  .page-nav(class=(!$word ? 'arrows' : ''))
+    |
+    |
+    a.no--typical.prev(href="javascript:void(0)" class=(!$word ? 'ripple' : ''))
+      if $word
+        span предыдущая
+      else
+        +icon('arrow-pagination')
+    |
+    |
+    .page-nav-number-wrap
+      |
+      |
+      span.number.selected 1
+      |
+      |
+      span.number
+        a.no--typical(href="javascript:void(0)") 2
+      |
+      |
+      span.number
+        a.no--typical(href="javascript:void(0)") 3
+      |
+      |
+    |
+    |
+    a.no--typical.next(href="javascript:void(0)" class=(!$word ? 'ripple' : ''))
+      if $word
+        span следующая
+      else
+        +icon('arrow-pagination')
+    |
+    |

@@ -15,27 +15,28 @@ $btn-padding: .75rem 2rem;
   padding: $btn-padding;
   cursor: pointer;
   border-radius: $border-radius-btn;
-  transition: all $trs-2;
+  transition: all $trs;
+  user-select: none;
   &:hover {
     text-decoration: none !important;
   }
 }
 
 .dev-btn-primary {
-  color: $white !important;
+  color: $white;
   background-color: $btn-primary;
   &:hover {
-    color: $white;
+    color: darken($white, $color-darker/4);
     background-color: darken($btn-primary, $emphasized-link-hover-darken-percentage);
   }
 }
 
 .dev-btn-secondary {
-  color: $white !important;
+  color: $white;
   background-color: $btn-secondary;
   &:hover {
     background-color: darken($btn-secondary, $emphasized-link-hover-darken-percentage);
-    color: $white;
+    color: darken($white, $color-darker/4);
   }
 }
 
@@ -87,7 +88,7 @@ $btn-padding: .75rem 2rem;
     height: 100%;
     line-height: inherit;
     border: none;
-    @extend .dev-btn;
+    padding: $btn-padding;
   }
 }
 

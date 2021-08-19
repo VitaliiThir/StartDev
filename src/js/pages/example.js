@@ -22,7 +22,7 @@ $(function () {
   formValidationExample(true);
 
   if (phone_mask.length) {
-    $(".phone-mask").inputmask("+7 (999) 999-99-99");
+    $(".phone-mask").inputmask({mask:"+7 (\\999) 999-99-99"});
   }
   pulseClick();
 
